@@ -53,7 +53,7 @@ export function ContactSection({ preselectedDienst, title, subtitle }) {
   };
 
   return (
-    <section className="relative overflow-visible w-full bg-white pt-24 pb-20 px-4">
+    <section id="contact" className="relative overflow-visible w-full bg-white pt-24 pb-20 px-4">
       {/* Decorator - Bridging top-left to WaaromSection */}
       <div className="absolute -top-16 left-0 w-32 h-32 md:w-44 md:h-44 z-20 pointer-events-none">
         <Image 
