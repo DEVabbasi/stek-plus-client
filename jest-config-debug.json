@@ -1,0 +1,208 @@
+﻿{
+  "configs": [
+    {
+      "automock": false,
+      "cache": true,
+      "cacheDirectory": "C:\\Users\\SiliCon\\AppData\\Local\\Temp\\jest",
+      "clearMocks": false,
+      "collectCoverageFrom": [],
+      "coverageDirectory": "C:\\Users\\SiliCon\\Projects\\stek-client\\coverage",
+      "coveragePathIgnorePatterns": [
+        "\\\\node_modules\\\\"
+      ],
+      "cwd": "C:\\Users\\SiliCon\\Projects\\stek-client",
+      "detectLeaks": false,
+      "detectOpenHandles": false,
+      "errorOnDeprecated": false,
+      "extensionsToTreatAsEsm": [],
+      "fakeTimers": {
+        "enableGlobally": false
+      },
+      "forceCoverageMatch": [],
+      "globals": {},
+      "haste": {
+        "computeSha1": false,
+        "enableSymlinks": false,
+        "forceNodeFilesystemAPI": true,
+        "throwOnModuleCollision": false
+      },
+      "id": "35ad9c2eac06593781306d6d68b3fe4c",
+      "injectGlobals": true,
+      "moduleDirectories": [
+        "node_modules"
+      ],
+      "moduleFileExtensions": [
+        "js",
+        "mjs",
+        "cjs",
+        "jsx",
+        "ts",
+        "tsx",
+        "json",
+        "node"
+      ],
+      "moduleNameMapper": [
+        [
+          "^.+\\.module\\.(css|sass|scss)$",
+          "C:\\Users\\SiliCon\\Projects\\stek-client\\node_modules\\next\\dist\\build\\jest\\object-proxy.js"
+        ],
+        [
+          "^.+\\.(css|sass|scss)$",
+          "C:\\Users\\SiliCon\\Projects\\stek-client\\node_modules\\next\\dist\\build\\jest\\__mocks__\\styleMock.js"
+        ],
+        [
+          "^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp)$",
+          "C:\\Users\\SiliCon\\Projects\\stek-client\\node_modules\\next\\dist\\build\\jest\\__mocks__\\fileMock.js"
+        ],
+        [
+          "^.+\\.(svg)$",
+          "C:\\Users\\SiliCon\\Projects\\stek-client\\node_modules\\next\\dist\\build\\jest\\__mocks__\\fileMock.js"
+        ],
+        [
+          "@next/font/(.*)",
+          "C:\\Users\\SiliCon\\Projects\\stek-client\\node_modules\\next\\dist\\build\\jest\\__mocks__\\nextFontMock.js"
+        ],
+        [
+          "next/font/(.*)",
+          "C:\\Users\\SiliCon\\Projects\\stek-client\\node_modules\\next\\dist\\build\\jest\\__mocks__\\nextFontMock.js"
+        ],
+        [
+          "^server-only$",
+          "C:\\Users\\SiliCon\\Projects\\stek-client\\node_modules\\next\\dist\\build\\jest\\__mocks__\\empty.js"
+        ],
+        [
+          "^@/(.*)$",
+          "C:\\Users\\SiliCon\\Projects\\stek-client\\$1"
+        ]
+      ],
+      "modulePathIgnorePatterns": [],
+      "openHandlesTimeout": 1000,
+      "prettierPath": "prettier",
+      "resetMocks": false,
+      "resetModules": false,
+      "restoreMocks": false,
+      "rootDir": "C:\\Users\\SiliCon\\Projects\\stek-client",
+      "roots": [
+        "C:\\Users\\SiliCon\\Projects\\stek-client"
+      ],
+      "runner": "C:\\Users\\SiliCon\\Projects\\stek-client\\node_modules\\jest-runner\\build\\index.js",
+      "sandboxInjectedGlobals": [],
+      "setupFiles": [],
+      "setupFilesAfterEnv": [],
+      "skipFilter": false,
+      "slowTestThreshold": 5,
+      "snapshotFormat": {
+        "escapeString": false,
+        "printBasicPrototype": false
+      },
+      "snapshotSerializers": [],
+      "testEnvironment": "C:\\Users\\SiliCon\\Projects\\stek-client\\node_modules\\jest-environment-jsdom\\build\\index.js",
+      "testEnvironmentOptions": {},
+      "testLocationInResults": false,
+      "testMatch": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[tj]s?(x)"
+      ],
+      "testPathIgnorePatterns": [
+        "\\\\node_modules\\\\",
+        "\\\\.next\\\\"
+      ],
+      "testRegex": [],
+      "testRunner": "C:\\Users\\SiliCon\\Projects\\stek-client\\node_modules\\jest-circus\\runner.js",
+      "transform": [
+        [
+          "^.+\\.(js|jsx|ts|tsx|mjs)$",
+          "C:\\Users\\SiliCon\\Projects\\stek-client\\node_modules\\next\\dist\\build\\swc\\jest-transformer.js",
+          {
+            "modularizeImports": {
+              "@mui/icons-material": {
+                "transform": "@mui/icons-material/{{member}}"
+              },
+              "lodash": {
+                "transform": "lodash/{{member}}"
+              }
+            },
+            "compilerOptions": {},
+            "jsConfig": {
+              "compilerOptions": {
+                "paths": {
+                  "@/*": [
+                    "./*"
+                  ]
+                }
+              }
+            },
+            "resolvedBaseUrl": {
+              "baseUrl": "C:\\Users\\SiliCon\\Projects\\stek-client",
+              "isImplicit": true
+            },
+            "serverComponents": true,
+            "isEsmProject": false
+          }
+        ]
+      ],
+      "transformIgnorePatterns": [
+        "\\\\node_modules\\\\(?!.pnpm)(?!(geist)\\\\)",
+        "\\\\node_modules\\\\.pnpm\\\\(?!(geist)@)",
+        "^.+\\.module\\.(css|sass|scss)$"
+      ],
+      "watchPathIgnorePatterns": [
+        "\\\\.next\\\\"
+      ]
+    }
+  ],
+  "globalConfig": {
+    "bail": 0,
+    "changedFilesWithAncestor": false,
+    "ci": false,
+    "collectCoverage": false,
+    "collectCoverageFrom": [],
+    "coverageDirectory": "C:\\Users\\SiliCon\\Projects\\stek-client\\coverage",
+    "coverageProvider": "v8",
+    "coverageReporters": [
+      "json",
+      "text",
+      "lcov",
+      "clover"
+    ],
+    "detectLeaks": false,
+    "detectOpenHandles": false,
+    "errorOnDeprecated": false,
+    "expand": false,
+    "findRelatedTests": false,
+    "forceExit": false,
+    "json": false,
+    "lastCommit": false,
+    "listTests": false,
+    "logHeapUsage": false,
+    "maxConcurrency": 5,
+    "maxWorkers": 7,
+    "noStackTrace": false,
+    "nonFlagArgs": [],
+    "notify": false,
+    "notifyMode": "failure-change",
+    "onlyChanged": false,
+    "onlyFailures": false,
+    "openHandlesTimeout": 1000,
+    "passWithNoTests": false,
+    "projects": [],
+    "rootDir": "C:\\Users\\SiliCon\\Projects\\stek-client",
+    "runTestsByPath": false,
+    "seed": -1061370284,
+    "skipFilter": false,
+    "snapshotFormat": {
+      "escapeString": false,
+      "printBasicPrototype": false
+    },
+    "testFailureExitCode": 1,
+    "testPathPattern": "",
+    "testSequencer": "C:\\Users\\SiliCon\\Projects\\stek-client\\node_modules\\@jest\\test-sequencer\\build\\index.js",
+    "updateSnapshot": "new",
+    "useStderr": false,
+    "watch": false,
+    "watchAll": false,
+    "watchman": true,
+    "workerThreads": false
+  },
+  "version": "29.7.0"
+}

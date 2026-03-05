@@ -1,0 +1,109 @@
+﻿
+> stek-client@0.1.0 test
+> jest --no-cache
+
+node.exe : ΓùÅ Validation Warning:
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ΓùÅ Validation Warning::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+  Unknown option "setupFilesAfterFramework" with value ["<rootDir>/jest.setup.js"] was found.
+  This is probably a typing mistake. Fixing it will remove this message.
+
+  Configuration Documentation:
+  https://jestjs.io/docs/configuration
+
+ΓùÅ Validation Warning:
+
+  Unknown option "setupFilesAfterFramework" with value ["<rootDir>/jest.setup.js"] was found.
+  This is probably a typing mistake. Fixing it will remove this message.
+
+  Configuration Documentation:
+  https://jestjs.io/docs/configuration
+
+PASS __tests__/store/contactSlice.test.js
+FAIL __tests__/components/ui/BrandButton.test.jsx
+  ΓùÅ BrandButton ΓÇ║ renders children correctly
+
+    TypeError: expect(...).toBeInTheDocument is not a function
+
+    [0m [90m  6 |[39m   it([32m"renders children correctly"[39m[33m,[39m () [33m=>[39m {
+     [90m  7 |[39m     render([33m<[39m[33mBrandButton[39m[33m>[39m[33mKlik[39m hier[33m<[39m[33m/[39m[33mBrandButton[39m[33m>[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m  8 |[39m     expect(screen[33m.[39mgetByRole([32m"button"[39m[33m,[39m { name[33m:[39m [35m/klik hier/i[39m 
+}))[33m.[39mtoBeInTheDocument()[33m;[39m
+     [90m    |[39m                                                                [31m[1m^[22m[39m
+     [90m  9 |[39m   })[33m;[39m
+     [90m 10 |[39m
+     [90m 11 |[39m   it([32m"calls onClick handler when clicked"[39m[33m,[39m () [33m=>[39m {[0m
+
+      at Object.toBeInTheDocument (__tests__/components/ui/BrandButton.test.jsx:8:64)
+
+  ΓùÅ BrandButton ΓÇ║ is disabled when disabled prop is passed
+
+    TypeError: expect(...).toBeDisabled is not a function
+
+    [0m [90m 18 |[39m   it([32m"is disabled when disabled prop is passed"[39m[33m,[39m () [33m=>[39m {
+     [90m 19 |[39m     render([33m<[39m[33mBrandButton[39m disabled[33m>[39m[33mDisabled[39m[33m<[39m[33m/[39m[33mBrandButton[39m[33m>[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 20 |[39m     expect(screen[33m.[39mgetByRole([32m"button"[39m))[33m.[39mtoBeDisabled()[33m;[39m
+     [90m    |[39m                                        [31m[1m^[22m[39m
+     [90m 21 |[39m   })[33m;[39m
+     [90m 22 |[39m
+     [90m 23 |[39m   it([32m"applies fullWidth class when fullWidth prop is true"[39m[33m,[39m () [33m=>[39m {[0m
+
+      at Object.toBeDisabled (__tests__/components/ui/BrandButton.test.jsx:20:40)
+
+  ΓùÅ BrandButton ΓÇ║ applies fullWidth class when fullWidth prop is true
+
+    TypeError: expect(...).toHaveClass is not a function
+
+    [0m [90m 23 |[39m   it([32m"applies fullWidth class when fullWidth prop is true"[39m[33m,[39m () [33m=>[39m {
+     [90m 24 |[39m     render([33m<[39m[33mBrandButton[39m fullWidth[33m>[39m[33mFull[39m[33m<[39m[33m/[39m[33mBrandButton[39m[33m>[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 25 |[39m     expect(screen[33m.[39mgetByRole([32m"button"[39m))[33m.[39mtoHaveClass([32m"w-full"[39m)[33m;[39m
+     [90m    |[39m                                        [31m[1m^[22m[39m
+     [90m 26 |[39m   })[33m;[39m
+     [90m 27 |[39m })[33m;[39m
+     [90m 28 |[39m[0m
+
+      at Object.toHaveClass (__tests__/components/ui/BrandButton.test.jsx:25:40)
+
+FAIL __tests__/components/ui/MediaLightbox.test.jsx
+  ΓùÅ MediaLightbox ΓÇ║ renders dialog when item is provided
+
+    TypeError: expect(...).toBeInTheDocument is not a function
+
+    [0m [90m 18 |[39m     render([33m<[39m[33mMediaLightbox[39m item[33m=[39m{mockImageItem} onClose[33m=[39m{jest[33m.[39mfn()} [33m/[39m[33m>[39m)[33m;[39m
+     [90m 19 |[39m     [90m// Depends on how MediaLightbox is implemented, usually it has a dialog role or specific text[39m
+    [31m[1m>[22m[39m[90m 20 |[39m     expect(screen[33m.[39mgetByRole([32m"dialog"[39m))[33m.[39mtoBeInTheDocument()[33m;[39m
+     [90m    |[39m                                        [31m[1m^[22m[39m
+     [90m 21 |[39m   })[33m;[39m
+     [90m 22 |[39m
+     [90m 23 |[39m   it([32m"calls onClose when close button is clicked"[39m[33m,[39m () [33m=>[39m {[0m
+
+      at Object.toBeInTheDocument (__tests__/components/ui/MediaLightbox.test.jsx:20:40)
+
+  ΓùÅ MediaLightbox ΓÇ║ calls onClose when close button is clicked
+
+    expect(jest.fn()).toHaveBeenCalledTimes(expected)
+
+    Expected number of calls: 1
+    Received number of calls: 2
+
+    [0m [90m 28 |[39m     [36mconst[39m closeBtn [33m=[39m screen[33m.[39mgetByLabelText([35m/sluiten/i[39m) [33m||[39m 
+screen[33m.[39mgetAllByRole([32m"button"[39m)[[35m0[39m][33m;[39m
+     [90m 29 |[39m     fireEvent[33m.[39mclick(closeBtn)[33m;[39m
+    [31m[1m>[22m[39m[90m 30 |[39m     expect(onClose)[33m.[39mtoHaveBeenCalledTimes([35m1[39m)[33m;[39m
+     [90m    |[39m                     [31m[1m^[22m[39m
+     [90m 31 |[39m   })[33m;[39m
+     [90m 32 |[39m })[33m;[39m
+     [90m 33 |[39m[0m
+
+      at Object.toHaveBeenCalledTimes (__tests__/components/ui/MediaLightbox.test.jsx:30:21)
+
+Test Suites: 2 failed, 1 passed, 3 total
+Tests:       5 failed, 4 passed, 9 total
+Snapshots:   0 total
+Time:        8.411 s
+Ran all test suites.
