@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
-import { Container } from "../layout/Container";
+import { Container } from "@/components/layout/Container";
 
 const services = [
   {
