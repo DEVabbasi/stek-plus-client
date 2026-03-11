@@ -1,79 +1,61 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect } from "react";
 import Image from "next/image";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useDispatch, useSelector } from "react-redux";
+import { contactSchema } from "@/lib/validations/contact.schema";
+import { submitQuotation, resetContactForm } from "@/store/slices/contactSlice";
+import { ContactFormBody } from "@/components/shared/ContactFormBody";
 import { BrandButton } from "@/components/ui/BrandButton";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export function ContactSection({ preselectedDienst, title, subtitle }) {
-  const [formData, setFormData] = useState({
-    klantnaam: "",
-    bedrijfsnaam: "",
-    email: "",
-    telefoonnummer: "",
-    dienst: preselectedDienst || "",
-    projectbeschrijving: ""
+  const dispatch = useDispatch();
+  const { status, error } = useSelector((state) => state.contact);
+
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    watch,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      customerName: "",
+      companyName: "",
+      email: "",
+      phone: "",
+      drawingType: preselectedDienst || "",
+      message: "",
+    },
   });
-  
-  const [errors, setErrors] = useState({});
-  const [isSuccess, setIsSuccess] = useState(false);
 
-  const validate = () => {
-    let newErrors = {};
-    if (formData.klantnaam.length < 2) newErrors.klantnaam = "Vul uw naam in";
-    if (formData.bedrijfsnaam.length < 2) newErrors.bedrijfsnaam = "Vul uw bedrijfsnaam in";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = "Ongeldig e-mailadres";
-    if (formData.telefoonnummer.length < 10 || !/^[0-9+\s\-()]+$/.test(formData.telefoonnummer)) {
-      newErrors.telefoonnummer = "Ongeldig telefoonnummer";
+  // Reset form on success
+  useEffect(() => {
+    if (status === "succeeded") {
+      reset();
+      const timer = setTimeout(() => {
+        dispatch(resetContactForm());
+      }, 5000);
+      return () => clearTimeout(timer);
     }
-    if (!formData.dienst) newErrors.dienst = "Selecteer een dienst";
-    if (formData.projectbeschrijving.length < 10) newErrors.projectbeschrijving = "Beschrijf uw project (minimaal 10 tekens)";
-    
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  }, [status, reset, dispatch]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      setIsSuccess(true);
-      // In a real app, send data to the server here
-    }
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSelectChange = (value) => {
-    setFormData(prev => ({ ...prev, dienst: value }));
+  const onSubmit = (data) => {
+    dispatch(submitQuotation(data));
   };
 
   return (
     <section id="contact" className="relative overflow-visible w-full bg-white pt-24 pb-20 px-4">
-      {/* Decorator - Bridging top-left to WaaromSection */}
+      {/* Decorators */}
       <div className="absolute -top-16 left-0 w-32 h-32 md:w-44 md:h-44 z-20 pointer-events-none">
-        <Image 
-          src="/icons/vectorDesign1.svg" 
-          alt="" 
-          width={176} 
-          height={176} 
-          className="object-contain" 
-        />
+        <Image src="/icons/vectorDesign1.svg" alt="" width={176} height={176} className="object-contain" />
       </div>
-
-      {/* Decorator - Bottom right large */}
       <div className="absolute bottom-0 right-0 w-40 h-40 md:w-64 md:h-64 z-0 pointer-events-none">
-        <Image 
-          src="/icons/vectorDesign2.svg" 
-          alt="" 
-          width={256} 
-          height={256} 
-          className="object-contain" 
-        />
+        <Image src="/icons/vectorDesign2.svg" alt="" width={256} height={256} className="object-contain" />
       </div>
 
       <div className="max-w-2xl mx-auto relative z-10">
@@ -89,94 +71,32 @@ export function ContactSection({ preselectedDienst, title, subtitle }) {
           </p>
         </div>
 
-        {isSuccess ? (
-          <div className="mt-8 text-center text-brand font-medium text-lg">
-            Bedankt! Wij nemen spoedig contact met u.
+        {status === "succeeded" ? (
+          <div className="mt-8 p-6 bg-green-50 border border-green-100 rounded-lg text-center animate-in fade-in zoom-in duration-300">
+            <p className="text-green-800 font-bold text-lg">Bedankt! Uw aanvraag is verzonden.</p>
+            <p className="text-green-600 text-sm mt-1">Wij nemen zo spoedig mogelijk contact met u op.</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="mt-8 space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <Input 
-                  name="klantnaam"
-                  value={formData.klantnaam}
-                  onChange={handleChange}
-                  placeholder="Klantnaam" 
-                  className="h-12 border border-gray-300 rounded-none bg-white text-gray-700 placeholder:text-gray-400 focus:ring-1 focus:ring-[var(--brand-blue)] focus:border-[var(--brand-blue)]"
-                />
-                {errors.klantnaam && <p className="text-red-500 text-xs mt-1">{errors.klantnaam}</p>}
-              </div>
-              <div>
-                <Input 
-                  name="bedrijfsnaam"
-                  value={formData.bedrijfsnaam}
-                  onChange={handleChange}
-                  placeholder="Bedrijfsnaam" 
-                  className="h-12 border border-gray-300 rounded-none bg-white text-gray-700 placeholder:text-gray-400 focus:ring-1 focus:ring-[var(--brand-blue)] focus:border-[var(--brand-blue)]"
-                />
-                {errors.bedrijfsnaam && <p className="text-red-500 text-xs mt-1">{errors.bedrijfsnaam}</p>}
-              </div>
-            </div>
+          <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-6">
+            <ContactFormBody 
+              register={register} 
+              errors={errors} 
+              setValue={setValue} 
+              watch={watch} 
+            />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <Input 
-                  name="email"
-                  type="email" 
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="E-Mailadres" 
-                  className="h-12 border border-gray-300 rounded-none bg-white text-gray-700 placeholder:text-gray-400 focus:ring-1 focus:ring-[var(--brand-blue)] focus:border-[var(--brand-blue)]"
-                />
-                {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
-              </div>
-              <div>
-                <Input 
-                  name="telefoonnummer"
-                  type="tel" 
-                  value={formData.telefoonnummer}
-                  onChange={handleChange}
-                  placeholder="Telefoonnummer" 
-                  className="h-12 border border-gray-300 rounded-none bg-white text-gray-700 placeholder:text-gray-400 focus:ring-1 focus:ring-[var(--brand-blue)] focus:border-[var(--brand-blue)]"
-                />
-                {errors.telefoonnummer && <p className="text-red-500 text-xs mt-1">{errors.telefoonnummer}</p>}
-              </div>
-            </div>
-
-            <div>
-              <Select onValueChange={handleSelectChange} value={formData.dienst}>
-                <SelectTrigger className="w-full h-12 border border-gray-300 rounded-none bg-white text-gray-500 [&>svg:last-child]:hidden flex items-center justify-between px-3">
-                  <SelectValue placeholder="Selecteer Dienst" />
-                  <Image src="/icons/CustomArrowBlack.svg" alt="" width={16} height={16} />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="trappen">Trappen</SelectItem>
-                  <SelectItem value="hekwerken">Hekwerken</SelectItem>
-                  <SelectItem value="staalconstructies">Staalconstructies</SelectItem>
-                  <SelectItem value="overige">Overige</SelectItem>
-                </SelectContent>
-              </Select>
-              {errors.dienst && <p className="text-red-500 text-xs mt-1">{errors.dienst}</p>}
-            </div>
-
-            <div>
-              <Textarea
-                name="projectbeschrijving"
-                value={formData.projectbeschrijving}
-                onChange={handleChange}
-                placeholder="Projectbeschrijving"
-                className="min-h-[120px] border border-gray-300 rounded-none resize-none bg-white text-gray-700 placeholder:text-gray-400 focus:ring-1 focus:ring-[var(--brand-blue)] focus:border-[var(--brand-blue)]"
-              />
-              {errors.projectbeschrijving && <p className="text-red-500 text-xs mt-1">{errors.projectbeschrijving}</p>}
-            </div>
+            {error && (
+              <p className="text-red-500 text-sm text-center bg-red-50 p-3 rounded">{error}</p>
+            )}
 
             <BrandButton
               type="submit"
               size="md"
               fullWidth
+              disabled={status === "loading"}
               className="w-full h-12 uppercase rounded-none flex items-center justify-center gap-2"
             >
-               VERSTUREN
+               {status === "loading" ? "VERZENDEN..." : "VERSTUREN"}
                <Image src="/icons/CustomArrowBlack.svg" alt="" width={16} height={16} className="brightness-0 invert" />
             </BrandButton>
           </form>

@@ -1,20 +1,18 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import apiClient from "@/lib/api/axios";
-import { ENDPOINTS } from "@/lib/api/endpoints";
+import contactService from "@/lib/api/services/contactService";
 
 const initialState = {
   status: "idle", // "idle" | "loading" | "succeeded" | "failed"
   error: null,
 };
 
-export const submitContactForm = createAsyncThunk(
-  "contact/submit",
-  async (formData, { rejectWithValue }) => {
+export const submitQuotation = createAsyncThunk(
+  "contact/submitQuotation",
+  async (payload, { rejectWithValue }) => {
     try {
-      const response = await apiClient.post(ENDPOINTS.contact.submit, formData);
-      return response.data;
+      return await contactService.submitQuotation(payload);
     } catch (err) {
-      return rejectWithValue(err.response?.data?.message ?? "Submission failed");
+      return rejectWithValue(err.response?.data?.message || "Verzenden van offerteaanvraag mislukt");
     }
   }
 );
@@ -30,14 +28,14 @@ const contactSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(submitContactForm.pending, (state) => {
+      .addCase(submitQuotation.pending, (state) => {
         state.status = "loading";
         state.error = null;
       })
-      .addCase(submitContactForm.fulfilled, (state) => {
+      .addCase(submitQuotation.fulfilled, (state) => {
         state.status = "succeeded";
       })
-      .addCase(submitContactForm.rejected, (state, action) => {
+      .addCase(submitQuotation.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.payload;
       });

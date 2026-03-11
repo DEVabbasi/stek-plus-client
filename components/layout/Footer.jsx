@@ -7,25 +7,25 @@ const footerLinks = {
   snelkoppelingen: [
     { name: "Home", href: "/" },
     { name: "Over Ons", href: "/over-ons" },
-    { name: "Diensten", href: "/tekenwerk" },
-    { name: "Contact", href: "/contact" },
-    { name: "Portefeuille", href: "/projecten" },
+    { name: "Diensten", href: "/tekenwerken" },
+    { name: "Projecten", href: "/projecten" },
+    { name: "Contact", href: "/#contact" },
   ],
 };
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-[#88C8F7] to-[#1072B7] text-white py-12">
+    <footer className="bg-gradient-to-r from-[#88C8F7] to-[#1072B7] text-white py-16 md:py-20">
       <Container>
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-3 gap-10 md:gap-16">
           {/* Logo & Description */}
           <div className="space-y-6">
             <Image
               src="/icons/footerLogo.svg"
               alt="STEK+ Logo"
-              width={150}
-              height={50}
-              className="h-12 w-auto"
+              width={160}
+              height={48}
+              className="w-40 h-auto"
             />
             <p className="text-sm leading-relaxed max-w-xs">
               Specialisten In Het Tekenen Van Staalconstructies Betrouwbaar
@@ -36,7 +36,7 @@ export function Footer() {
           {/* Quick Links */}
           <div>
             <h3 className="font-semibold text-lg mb-4">Snelkoppelingen</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-4">
               {footerLinks.snelkoppelingen.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -54,7 +54,7 @@ export function Footer() {
           <div className="space-y-6">
             <div>
               <h3 className="font-semibold text-lg mb-2">Adres</h3>
-              <p className="text-sm">Bulkesstraat 17, 4051LW Ingen</p>
+              <p className="text-sm">Bulksestraat 17, 4031JW Ingen</p>
             </div>
 
             <div>
@@ -95,6 +95,12 @@ export function Footer() {
               <p className="text-sm">NL006946783B3</p>
             </div>
           </div>
+        </div>
+
+        {/* Copyright bar */}
+        <div className="mt-12 pt-6 border-t border-white/30 text-center text-xs text-white/70">
+          © {new Date().getFullYear()} Stek+ Staaltechnisch Tekenburo. Alle
+          rechten voorbehouden.
         </div>
       </Container>
     </footer>

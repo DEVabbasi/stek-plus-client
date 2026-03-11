@@ -3,44 +3,64 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BrandButton } from "@/components/ui/BrandButton";
+import { useContactScroll } from "@/hooks/useContactScroll";
 
 export function TekenwerkenCard({ product }) {
-  const heroImage = product.media.find((m) => m.type === "image");
+  const { scrollToContact } = useContactScroll();
 
   return (
-    <div className="flex flex-col md:flex-row border border-gray-200 rounded-xl overflow-hidden min-h-[280px]">
-      {/* LEFT — Image panel */}
-      <div className="relative w-full md:w-[55%] min-h-[240px] md:min-h-[280px] bg-gray-100">
-        {heroImage && (
-          <Image
-            src={heroImage.src}
-            alt={heroImage.alt ?? product.title}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 55vw"
-          />
-        )}
+    <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200 max-w-7xl mx-auto">
+      {/* LEFT -- Image panel */}
+      <div className="bg-[#f8f9fa] flex items-center justify-center p-6 sm:p-8 lg:p-10 xl:p-12">
+        <div className="relative w-full aspect-video lg:aspect-auto lg:h-full ">
+          {(() => {
+            const displayImage = product.media?.[0]?.src || product.imageSrc;
+            if (!displayImage) return null;
+            return (
+              <Image
+                src={displayImage}
+                alt={product.title}
+                fill
+                className="object-cover rounded-md"
+                sizes="(max-width: 1024px) 100vw, 60vw"
+              />
+            );
+          })()}
+        </div>
       </div>
 
-      {/* RIGHT — Content panel */}
-      <div className="w-full md:w-[45%] p-8 flex flex-col justify-center gap-3 bg-white">
-        <h2 className="text-xl md:text-2xl font-bold text-black">{product.title}</h2>
-        <p className="text-sm text-gray-600">{product.subtitle}</p>
+      {/* RIGHT -- Content panel */}
+      <div className="bg-white p-6 sm:p-8 lg:p-8 xl:p-10 flex flex-col justify-center">
+        <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">
+          {product.title}
+        </h2>
 
-        {/* Bullet list */}
-        <ul className="space-y-1 mt-1">
-          {product.bulletPoints.map((point) => (
-            <li key={point} className="text-sm text-gray-700 flex items-start gap-1">
-              <span className="text-gray-500">•</span>
-              <span>{point}</span>
+        <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-5 leading-relaxed">
+          {product.subtitle}
+        </p>
+
+        <ul className="space-y-2 sm:space-y-2.5 mb-5 sm:mb-6">
+          {product.bulletPoints.map((point, index) => (
+            <li
+              key={index}
+              className="text-sm sm:text-base text-gray-700 flex items-start gap-2"
+            >
+              <span className="text-[#1072B7] font-bold mt-0.5 flex-shrink-0">
+                &bull;
+              </span>
+              <span className="leading-relaxed">{point}</span>
             </li>
           ))}
         </ul>
 
-        {/* Action button */}
-        <div className="mt-4">
-          <Link href={`/tekenwerk/${product.id}`}>
-            <BrandButton size="md">Boek nu</BrandButton>
+        <div>
+          <Link href="/#contact" onClick={scrollToContact}>
+            <BrandButton
+              size="md"
+              className="rounded-md px-6 sm:px-8 w-full sm:w-auto"
+            >
+              Boek nu
+            </BrandButton>
           </Link>
         </div>
       </div>

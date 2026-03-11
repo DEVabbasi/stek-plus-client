@@ -20,7 +20,7 @@ const services = [
   },
   {
     id: 4,
-    title: "Dxf, dwg en step files",
+    title: "Nc, dwg, dxf & step files",
     active: false,
   },
   {
@@ -87,7 +87,11 @@ export function ServicesSection() {
                 <div className="flex justify-start pt-2">
                   <div className="w-8 h-8 flex items-center justify-center">
                     <Image
-                      src={service.active ? "/icons/CustomArrowWhite.svg" : "/icons/CustomArrowBlack.svg"}
+                      src={
+                        service.active
+                          ? "/icons/CustomArrowWhite.svg"
+                          : "/icons/CustomArrowBlack.svg"
+                      }
                       alt="Arrow Icon"
                       width={16}
                       height={16}

@@ -1,26 +1,79 @@
 "use client";
 
-import { useState } from "react";
-import { projecten } from "@/lib/data/projecten-data";
-import { tabConfig } from "@/lib/data/projecten-tabs";
+import { useEffect, useCallback, useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { 
+  fetchCategories, 
+  fetchAllDrawings, 
+  setActiveCategory, 
+  selectProjectenState,
+  selectFilteredProjects 
+} from "@/store/slices/projectenSlice";
 import { ProjectCard } from "./ProjectCard";
+import { ProjectCardSkeleton } from "./ProjectCardSkeleton";
 import { cn } from "@/lib/utils";
 
 export default function ProjectenClient() {
-  const [activeTab, setActiveTab] = useState("productie");
-  const [activeSubcat, setActiveSubcat] = useState("productie-staalconstructies");
+  const dispatch = useDispatch();
+  const { categories, activeCategory, loading, error } = useSelector(selectProjectenState);
+  const filteredProjects = useSelector(selectFilteredProjects);
 
-  const currentTabConfig = tabConfig.find((t) => t.id === activeTab);
+  // Initial data fetch
+  useEffect(() => {
+    dispatch(fetchCategories());
+    dispatch(fetchAllDrawings());
+  }, [dispatch]);
 
-  const handleTabChange = (tabId) => {
-    setActiveTab(tabId);
-    const firstSubcat = tabConfig.find((t) => t.id === tabId).subcategories[0].id;
-    setActiveSubcat(firstSubcat);
-  };
+  // Performance optimized tab switcher
+  const handleTabChange = useCallback((id) => {
+    dispatch(setActiveCategory(id));
+  }, [dispatch]);
 
-  const filtered = projecten.filter(
-    (p) => p.tab === activeTab && p.subcategory === activeSubcat
-  );
+  // Memoized content rendering
+  const content = useMemo(() => {
+    if (loading.items || loading.categories) {
+      return (
+        <div className="space-y-6">
+          {[...Array(3)].map((_, i) => (
+            <ProjectCardSkeleton key={i} />
+          ))}
+        </div>
+      );
+    }
+
+    if (error.items || error.categories) {
+      return (
+        <div className="text-center py-16">
+          <p className="text-red-500 font-medium">Oeps! Er ging iets mis bij het laden van de projecten.</p>
+          <button 
+            onClick={() => {
+              dispatch(fetchCategories());
+              dispatch(fetchAllDrawings());
+            }}
+            className="mt-4 text-[#1072B7] font-semibold hover:underline"
+          >
+            Probeer het opnieuw
+          </button>
+        </div>
+      );
+    }
+
+    if (filteredProjects.length === 0) {
+      return (
+        <p className="text-center text-gray-400 py-16 text-sm">
+          Geen projecten gevonden in deze categorie.
+        </p>
+      );
+    }
+
+    return (
+      <div className="space-y-6">
+        {filteredProjects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+      </div>
+    );
+  }, [loading, error, filteredProjects, dispatch]);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
@@ -32,62 +85,37 @@ export default function ProjectenClient() {
         Bekijk ons portfolio met technische tekeningen en 3d-modellen.
       </p>
 
-      {/* Outer tab row — Productie / Tekenwerk */}
-      <div className="flex justify-center flex-wrap gap-2 mt-8">
-        {tabConfig.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => handleTabChange(tab.id)}
-            className={cn(
-              "px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#1072B7] focus:ring-offset-1",
-              activeTab === tab.id
-                ? "text-white border border-transparent"
-                : "bg-white border border-gray-300 text-gray-600 hover:border-[#1072B7] hover:text-[#1072B7]"
-            )}
-            style={
-              activeTab === tab.id
-                ? { background: "linear-gradient(271.53deg, #88C8F7 5.9%, #1072B7 77.5%)" }
-                : {}
-            }
-          >
-            {tab.label}
-          </button>
-        ))}
+      {/* Tabs */}
+      <div className="flex justify-center mt-8 overflow-x-auto pb-1">
+        <div className="flex bg-gray-100 rounded-full p-1 gap-1 flex-nowrap min-h-[44px]">
+          {categories.length > 0 ? (
+            categories.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => handleTabChange(tab.id)}
+                className={cn(
+                  "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap",
+                  "focus:outline-none focus:ring-2 focus:ring-[#1072B7] focus:ring-offset-1",
+                  activeCategory === tab.id
+                    ? "bg-white text-gray-900 font-semibold shadow-sm"
+                    : "text-gray-500 hover:text-gray-700"
+                )}
+              >
+                {tab.label}
+              </button>
+            ))
+          ) : (
+            // Placeholder tabs while loading
+            [...Array(4)].map((_, i) => (
+              <div key={i} className="w-24 h-8 bg-gray-200 rounded-full animate-pulse" />
+            ))
+          )}
+        </div>
       </div>
 
-      {/* Inner subcategory row */}
-      <div className="flex justify-center flex-wrap gap-3 mt-4">
-        {currentTabConfig.subcategories.map((subcat) => (
-          <button
-            key={subcat.id}
-            onClick={() => setActiveSubcat(subcat.id)}
-            className={cn(
-              "px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#1072B7] focus:ring-offset-1",
-              activeSubcat === subcat.id
-                ? "text-white border border-transparent"
-                : "bg-white border border-gray-200 text-gray-500 hover:border-[#1072B7] hover:text-[#1072B7]"
-            )}
-            style={
-              activeSubcat === subcat.id
-                ? { background: "linear-gradient(271.53deg, #88C8F7 5.9%, #1072B7 77.5%)" }
-                : {}
-            }
-          >
-            {subcat.label}
-          </button>
-        ))}
-      </div>
-
-      {/* Project cards list */}
-      <div className="mt-8 space-y-6">
-        {filtered.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
-        {filtered.length === 0 && (
-          <p className="text-center text-gray-400 py-16 text-sm">
-            Geen projecten gevonden in deze categorie.
-          </p>
-        )}
+      {/* Main Content Area */}
+      <div className="mt-8">
+        {content}
       </div>
     </div>
   );

@@ -128,6 +128,32 @@
   }
 }
 
+/* Hero fine-tuning for smaller laptops */
+@media (max-width: 1280px) and (min-width: 1024px) {
+  .hero-section .hero-title {
+    font-size: 3.5rem;
+    line-height: 1.05;
+  }
+
+  .hero-section .hero-subtitle {
+    font-size: 2.5rem;
+  }
+
+  .hero-section .hero-image {
+    max-height: 420px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  .hero-section {
+    min-height: auto;
+  }
+
+  .hero-section .hero-cta {
+    width: 100%;
+  }
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -209,6 +235,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+    font-family: var(--font-helvetica-now), "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 }
