@@ -5,12 +5,14 @@ export function OnzeWerkwijzeSection() {
     {
       iconFile: "Black.svg",
       title: "Inschakelen bij capaciteitsproblemen",
-      description: "Kom tussenbeide bij capaciteitstekorten om uw productie draaiende te houden.",
+      description:
+        "Kom tussenbeide bij capaciteitstekorten om uw productie draaiende te houden.",
     },
     {
       iconFile: "Black-1.svg",
       title: "Ondersteunen bij grote of complexe projecten",
-      description: "Ondersteun grote of complexe projecten die gespecialiseerde aandacht vereisen.",
+      description:
+        "Ondersteun grote of complexe projecten die gespecialiseerde aandacht vereisen.",
     },
     {
       iconFile: "Black-2.svg",
@@ -32,7 +34,8 @@ export function OnzeWerkwijzeSection() {
         </h2>
 
         <p className="text-sm md:text-base text-center text-gray-500 mt-3 max-w-xl mx-auto leading-relaxed">
-          Wij werken als externe tekenpartner voor staalproductiebedrijven. dat betekent dat wij
+          Wij werken als externe tekenpartner voor staalproductiebedrijven. dat
+          betekent dat wij
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
@@ -61,7 +64,8 @@ export function OnzeWerkwijzeSection() {
         </div>
 
         <p className="text-center text-gray-600 text-sm md:text-base mt-12 max-w-xl mx-auto leading-relaxed">
-          Wij integreren waar nodig in uw bestaande processen en werken volgens uw standaarden en systemen.
+          Wij integreren waar nodig in uw bestaande processen en werken volgens
+          uw standaarden en systemen.
         </p>
       </div>
     </section>

@@ -92,7 +92,7 @@
 }
 
 .container-custom {
-  @apply max-w-7xl mx-auto px-4 md:px-10;
+  @apply max-w-7xl mx-auto px-2 md:px-10;
 }
 
 .card-service {
@@ -235,6 +235,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-helvetica-now), "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family:
+      var(--font-helvetica-now), "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 }

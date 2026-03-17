@@ -31,7 +31,7 @@ export function TekenwerkenCard({ product }) {
 
       {/* RIGHT -- Content panel */}
       <div className="bg-white p-6 sm:p-8 lg:p-8 xl:p-10 flex flex-col justify-center">
-        <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">
+        <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-900 mb-2 sm:mb-3">
           {product.title}
         </h2>
 
@@ -45,7 +45,7 @@ export function TekenwerkenCard({ product }) {
               key={index}
               className="text-sm sm:text-base text-gray-700 flex items-start gap-2"
             >
-              <span className="text-[#1072B7] font-bold mt-0.5 flex-shrink-0">
+              <span className="text-[#1072B7] font-semibold mt-0.5 shrink-0">
                 &bull;
               </span>
               <span className="leading-relaxed">{point}</span>
@@ -55,10 +55,7 @@ export function TekenwerkenCard({ product }) {
 
         <div>
           <Link href="/#contact" onClick={scrollToContact}>
-            <BrandButton
-              size="md"
-              className="rounded-md px-6 sm:px-8 w-full sm:w-auto"
-            >
+            <BrandButton size="lg" className="px-6 sm:px-8 w-full sm:w-auto">
               Boek nu
             </BrandButton>
           </Link>
