@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Facebook, Twitter } from "lucide-react";
-import { Container } from "./Container";
 
 const footerLinks = {
   snelkoppelingen: [
@@ -15,33 +14,33 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-brand text-white py-16 md:py-20">
-      <Container width>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
+    <footer className="relative overflow-hidden bg-brand text-white py-14 sm:py-16 md:py-20">
+      <section className="w-full px-5 sm:px-8 md:px-10 lg:px-8 xl:px-14">
+        <div className="mx-auto grid w-full max-w-360 grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-x-10 lg:grid-cols-[minmax(0,1.45fr)_minmax(150px,0.75fr)_minmax(185px,0.9fr)_minmax(240px,1fr)] lg:gap-x-8 xl:gap-x-12">
           {/* Column 1: Logo & Description */}
-          <div className="flex flex-col justify-between gap-10 sm:col-span-2 lg:col-span-1">
+          <div className="flex flex-col justify-between gap-6  pr-0 sm:col-span-2 lg:col-span-1 lg:pl-2 xl:pl-4">
             <Image
               src="/icons/footerLogo.svg"
               alt="STEK+ Staaltechnisch Tekenburo"
               width={160}
               height={48}
-              className="w-60 h-auto"
+              className="h-auto w-50 sm:w-54 lg:w-66"
             />
-            <p className="text-sm font-bold leading-relaxed max-w-sm">
+            <p className="max-w-[18rem] text-sm font-bold leading-relaxed sm:max-w-sm">
               Specialisten In Het Tekenen Van Staalconstructies Betrouwbaar
               Flexibel En Technisch Goed Onderlegd.
             </p>
           </div>
 
           {/* Column 2: Snelkoppelingen */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4">Snelkoppelingen</h3>
-            <ul className="space-y-3">
+          <div className="sm:justify-self-start lg:justify-self-center">
+            <h3 className="mb-4 text-lg font-semibold">Snelkoppelingen</h3>
+            <ul className="space-y-2.5">
               {footerLinks.snelkoppelingen.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm hover:underline transition-all"
+                    className="text-sm transition-all hover:underline"
                   >
                     {link.name}
                   </Link>
@@ -51,17 +50,17 @@ export function Footer() {
           </div>
 
           {/* Column 3: Adres */}
-          <div>
-            <h3 className="font-semibold text-lg mb-2">Adres</h3>
-            <p className="text-sm leading-relaxed">
+          <div className="sm:justify-self-start lg:-ml-3">
+            <h3 className="mb-2 text-lg font-semibold">Adres</h3>
+            <p className="max-w-[14rem] text-sm leading-relaxed">
               Bulksestraat 17, 4031JW Ingen
             </p>
           </div>
 
           {/* Column 4: Social + KVK + BTW */}
-          <div className="space-y-6">
+          <div className="space-y-6 sm:col-span-2 lg:col-span-1 lg:justify-self-end">
             <div>
-              <h3 className="font-semibold text-lg mb-3">
+              <h3 className="mb-3 text-lg font-semibold">
                 Volg Ons Op Socialmedia
               </h3>
               <div className="flex gap-3">
@@ -96,19 +95,19 @@ export function Footer() {
             </div>
 
             <div>
-              <h3 className="font-semibold text-lg mb-2">KVK Nummer</h3>
+              <h3 className="mb-2 text-lg font-semibold">KVK Nummer</h3>
               <p className="text-sm">95272526</p>
             </div>
 
             <div>
-              <h3 className="font-semibold text-lg mb-2">
+              <h3 className="mb-2 text-lg font-semibold">
                 BTW-Identificatienummer
               </h3>
               <p className="text-sm">NL005142783B3</p>
             </div>
           </div>
         </div>
-      </Container>
+      </section>
     </footer>
   );
 }

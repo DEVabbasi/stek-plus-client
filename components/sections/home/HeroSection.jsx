@@ -19,7 +19,7 @@ export function HeroSection() {
             productieklare staalconstructietekeningen. Betrouwbaar, flexibel en
             technisch sterk onderbouwd.
           </p>
-          <Link href="/contact">
+          <Link href="/#contact">
             <Button className="hero-cta bg-white text-[#1072B7] hover:bg-gray-50 px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold rounded-xl h-auto mt-4 w-full sm:w-auto">
               Neem contact met ons op of vraag om offerte aan
             </Button>
