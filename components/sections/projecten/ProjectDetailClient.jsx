@@ -1,12 +1,9 @@
-﻿"use client";
+"use client";
 
-import Link from "next/link";
 import MediaCarousel from "@/components/media/MediaCarousel";
 import { BrandButton } from "@/components/ui/BrandButton";
-import { useContactScroll } from "@/hooks/useContactScroll";
 import { cn } from "@/lib/utils";
 
-// Extracted styles from static data logic but made dynamic
 const getCategoryStyles = (category) => {
   const styles = {
     staalconstructies: "bg-[#1072B7] text-white",
@@ -23,44 +20,45 @@ const getCategoryStyles = (category) => {
 };
 
 export function ProjectDetailClient({ project }) {
-  const { scrollToContact } = useContactScroll();
+  const scrollToDrawingContact = () => {
+    const target = document.getElementById("drawing-contact");
+    if (!target) return;
+
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
-    <section className="max-w-6xl mx-auto px-4 py-12">
-      <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
-        {/* LEFT - Media Gallery */}
-        <div className="w-full lg:w-[52%] flex flex-col gap-3">
+    <section className="mx-auto max-w-6xl px-4 py-12">
+      <div className="flex flex-col gap-10 lg:flex-row lg:gap-16">
+        <div className="flex w-full flex-col gap-3 lg:w-[52%]">
           <MediaCarousel items={project.media || []} title={project.title} />
         </div>
 
-        {/* RIGHT - Project Info */}
-        <div className="w-full lg:w-[48%] flex flex-col justify-start pt-2">
+        <div className="flex w-full flex-col justify-start pt-2 lg:w-[48%]">
           <span
             className={cn(
-              "self-start inline-block px-3 py-1 text-xs font-semibold rounded-full",
+              "self-start inline-block rounded-full px-3 py-1 text-xs font-semibold",
               getCategoryStyles(project.category)
             )}
           >
             {project.categoryLabel}
           </span>
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-black leading-tight mt-3">
+          <h1 className="mt-3 text-3xl font-extrabold leading-tight text-black md:text-4xl lg:text-5xl">
             {project.title}
           </h1>
 
-          <p className="text-sm md:text-base text-gray-600 leading-relaxed mt-4">
+          <p className="mt-4 text-sm leading-relaxed text-gray-600 md:text-base">
             {project.description}
           </p>
 
-          <p className="text-sm text-gray-500 mt-6 font-medium">
+          <p className="mt-6 text-sm font-medium text-gray-500">
             Interesse in soortgelijk werk?
           </p>
           <div className="mt-3">
-            <Link href="/#contact" onClick={scrollToContact} className="block w-full">
-              <BrandButton size="lg" fullWidth>
-                Vraag een offerte aan
-              </BrandButton>
-            </Link>
+            <BrandButton size="lg" fullWidth onClick={scrollToDrawingContact}>
+              Vraag een offerte aan
+            </BrandButton>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { ChevronDown } from "lucide-react";
 import { 
   Select, 
   SelectContent, 
@@ -7,7 +8,6 @@ import {
   SelectTrigger, 
   SelectValue 
 } from "@/components/ui/select";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 /**
@@ -17,17 +17,20 @@ import { cn } from "@/lib/utils";
  */
 export function ContactFormBody({ register, errors, setValue, watch }) {
   const currentDienst = watch("drawingType");
+  const fieldClassName =
+    "h-[80px] border border-[#cfcfcf] rounded-none bg-white px-7 text-[20px] font-normal text-[#111] placeholder:text-[#111] placeholder:opacity-100 shadow-none focus:border-[#1072B7] focus:ring-0";
+  const textAreaClassName =
+    "min-h-[138px] border border-[#cfcfcf] rounded-none resize-none bg-white px-7 py-6 text-[20px] font-normal text-[#111] placeholder:text-[#111] placeholder:opacity-100 shadow-none focus:border-[#1072B7] focus:ring-0";
 
   return (
     <div className="space-y-4">
-      {/* Row 1: Name & Company */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="space-y-1">
           <Input 
             {...register("customerName")}
             placeholder="Klantnaam" 
             className={cn(
-              "h-12 border border-gray-300 rounded-none bg-white text-gray-700 placeholder:text-gray-400 focus:ring-1 focus:ring-[#1072B7] focus:border-[#1072B7]",
+              fieldClassName,
               errors.customerName && "border-red-500 focus:ring-red-500"
             )}
           />
@@ -38,7 +41,7 @@ export function ContactFormBody({ register, errors, setValue, watch }) {
             {...register("companyName")}
             placeholder="Bedrijfsnaam" 
             className={cn(
-              "h-12 border border-gray-300 rounded-none bg-white text-gray-700 placeholder:text-gray-400 focus:ring-1 focus:ring-[#1072B7] focus:border-[#1072B7]",
+              fieldClassName,
               errors.companyName && "border-red-500 focus:ring-red-500"
             )}
           />
@@ -46,15 +49,14 @@ export function ContactFormBody({ register, errors, setValue, watch }) {
         </div>
       </div>
 
-      {/* Row 2: Email & Phone */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="space-y-1">
           <Input 
             {...register("email")}
             type="email" 
             placeholder="E-Mailadres" 
             className={cn(
-              "h-12 border border-gray-300 rounded-none bg-white text-gray-700 placeholder:text-gray-400 focus:ring-1 focus:ring-[#1072B7] focus:border-[#1072B7]",
+              fieldClassName,
               errors.email && "border-red-500 focus:ring-red-500"
             )}
           />
@@ -66,7 +68,7 @@ export function ContactFormBody({ register, errors, setValue, watch }) {
             type="tel" 
             placeholder="Telefoonnummer" 
             className={cn(
-              "h-12 border border-gray-300 rounded-none bg-white text-gray-700 placeholder:text-gray-400 focus:ring-1 focus:ring-[#1072B7] focus:border-[#1072B7]",
+              fieldClassName,
               errors.phone && "border-red-500 focus:ring-red-500"
             )}
           />
@@ -74,20 +76,19 @@ export function ContactFormBody({ register, errors, setValue, watch }) {
         </div>
       </div>
 
-      {/* Row 3: Service Selection (Custom Select) */}
       <div className="space-y-1">
         <Select 
           onValueChange={(val) => setValue("drawingType", val, { shouldValidate: true })} 
           value={currentDienst}
         >
           <SelectTrigger className={cn(
-            "w-full h-12 border border-gray-300 rounded-none bg-white text-gray-500 [&>svg:last-child]:hidden flex items-center justify-between px-3",
+            "flex h-[80px] w-full items-center justify-between rounded-none border border-[#cfcfcf] bg-white px-7 text-[20px] font-normal text-[#111] data-[placeholder]:text-[#111] data-[placeholder]:opacity-100 [&>svg:last-child]:hidden",
             errors.drawingType && "border-red-500"
           )}>
             <SelectValue placeholder="Selecteer Dienst" />
-            <Image src="/icons/CustomArrowBlack.svg" alt="" width={16} height={16} />
+            <ChevronDown className="h-8 w-8 text-[#b8b8b8]" strokeWidth={1.8} />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="rounded-none border-[#cfcfcf]">
             <SelectItem value="trappen">Trappen</SelectItem>
             <SelectItem value="hekwerken">Hekwerken</SelectItem>
             <SelectItem value="staalconstructies">Staalconstructies</SelectItem>
@@ -97,13 +98,12 @@ export function ContactFormBody({ register, errors, setValue, watch }) {
         {errors.drawingType && <p className="text-red-500 text-xs">{errors.drawingType.message}</p>}
       </div>
 
-      {/* Row 4: Project Description */}
       <div className="space-y-1">
         <Textarea
           {...register("message")}
           placeholder="Projectbeschrijving"
           className={cn(
-            "min-h-[120px] border border-gray-300 rounded-none resize-none bg-white text-gray-700 placeholder:text-gray-400 focus:ring-1 focus:ring-[#1072B7] focus:border-[#1072B7]",
+            textAreaClassName,
             errors.message && "border-red-500 focus:ring-red-500"
           )}
         />

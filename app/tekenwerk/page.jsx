@@ -1,5 +1,6 @@
 import { TekenwerkenCard } from "@/components/sections/tekenwerken/TekenwerkenCard";
 import { tekenwerkenProducts } from "@/lib/data/tekenwerken-data";
+import VectorDivider from "@/components/ui/VectorDivider";
 
 export const metadata = { title: "Diensten | Stek+" };
 
@@ -27,6 +28,7 @@ export default function DienstenPage() {
           ))}
         </div>
       </section>
+      <VectorDivider align="right" />
     </main>
   );
 }

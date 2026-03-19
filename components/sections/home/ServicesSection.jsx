@@ -39,71 +39,57 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section className="section-padding bg-[#f5f7fa] relative overflow-hidden">
-      {/* Vector Images */}
-      <div className="absolute top-4 left-4 md:top-8 md:left-8 z-0 opacity-40">
-        <Image
-          src="/icons/vectorDesign2.svg"
-          alt=""
-          width={100}
-          height={100}
-          className="w-16 h-16 md:w-20 md:h-20 lg:w-28 lg:h-28"
-          loading="lazy"
-        />
-      </div>
-      <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 z-0 opacity-40">
-        <Image
-          src="/icons/vectorDesign2.svg"
-          alt=""
-          width={100}
-          height={100}
-          className="w-16 h-16 md:w-20 md:h-20 lg:w-28 lg:h-28"
-          loading="lazy"
-        />
-      </div>
-
+    <section className="relative overflow-hidden bg-white px-4 py-16 md:py-24 lg:py-28">
       <Container className="relative z-10">
-        <div className="text-center mb-10 md:mb-12 lg:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
+        <div className="mb-10 text-center md:mb-12 lg:mb-16">
+          <h2 className="text-5xl font-extrabold leading-none text-black sm:text-6xl md:text-7xl lg:text-[88px]">
             Onze diensten
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
           {services.map((service) => (
-            <Link href="/tekenwerken" key={service.id} className="block">
+            <Link href="/tekenwerk" key={service.id} className="block">
               <Card
                 className={cn(
-                  "p-6 sm:p-8 md:p-10 relative group cursor-pointer transition-all rounded-2xl shadow-md hover:shadow-xl h-full",
+                  "group flex min-h-[18rem] flex-col justify-between rounded-none border border-[#f3f3f3] bg-[#fcfcfc] p-10 shadow-none transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:min-h-[19rem] lg:min-h-[20.25rem]",
                   service.active
-                    ? "bg-brand text-white"
-                    : "bg-white text-gray-900 hover:bg-gradient-to-br hover:from-[#88c8f7] hover:to-[#1072b7] hover:text-white"
+                    ? "border-transparent bg-[linear-gradient(271.53deg,#88C8F7_5.9%,#1072B7_77.5%)] text-white"
+                    : "text-black hover:border-transparent hover:bg-[linear-gradient(271.53deg,#88C8F7_5.9%,#1072B7_77.5%)] hover:text-white"
                 )}
               >
-                <div className="space-y-3 sm:space-y-4 md:space-y-6">
-                  <div className="text-xs sm:text-sm font-medium tracking-wider opacity-70">
+                <div className="space-y-5">
+                  <div
+                    className={cn(
+                      "text-[16px] font-light uppercase leading-none tracking-[0.45em] transition-colors duration-300",
+                      service.active ? "text-white" : "text-black group-hover:text-white"
+                    )}
+                  >
                     STEK+
                   </div>
-                  <h3 className="text-base sm:text-lg md:text-xl font-semibold leading-tight min-h-[3rem]">
+                  <h3
+                    className={cn(
+                      "max-w-[10ch] text-[28px] font-bold leading-[1.18] transition-colors duration-300",
+                      service.active ? "text-white" : "text-black group-hover:text-white"
+                    )}
+                  >
                     {service.title}
                   </h3>
-                  <div className="flex justify-start pt-2">
-                    <div className="w-8 h-8 flex items-center justify-center">
-                      <Image
-                        src="/icons/CustomArrowBlack.svg"
-                        alt="Arrow Icon"
-                        width={16}
-                        height={16}
-                        className={cn(
-                          "transform transition-all duration-300 group-hover:translate-x-1",
-                          service.active
-                            ? "[filter:brightness(0)_invert(1)]"
-                            : "group-hover:[filter:brightness(0)_invert(1)]"
-                        )}
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
+                </div>
+                <div className="flex justify-start pt-8">
+                  <Image
+                    src="/icons/CustomArrowBlack.svg"
+                    alt="Arrow Icon"
+                    width={26}
+                    height={26}
+                    className={cn(
+                      "h-[26px] w-[26px] transition-all duration-300 group-hover:translate-x-1",
+                      service.active
+                        ? "[filter:brightness(0)_invert(1)]"
+                        : "group-hover:[filter:brightness(0)_invert(1)]"
+                    )}
+                    loading="lazy"
+                  />
                 </div>
               </Card>
             </Link>

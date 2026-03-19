@@ -121,6 +121,29 @@
   opacity: 0.95;
 }
 
+.hero-display-primary {
+  font-size: clamp(2.9rem, 5vw + 1rem, 5.9rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  text-wrap: balance;
+}
+
+.hero-display-secondary {
+  font-size: clamp(2.6rem, 5.2vw + 0.65rem, 6.25rem);
+  line-height: 1.07;
+  letter-spacing: 0;
+  font-weight: 300;
+  font-style: oblique 12deg;
+  font-synthesis: style;
+  text-wrap: balance;
+}
+
+.hero-image-frame {
+  width: min(100%, 44rem);
+  aspect-ratio: 1 / 1;
+}
+
 /* Responsive Typography */
 @media (max-width: 768px) {
   .section-padding {
@@ -131,12 +154,13 @@
 /* Hero fine-tuning for smaller laptops */
 @media (max-width: 1280px) and (min-width: 1024px) {
   .hero-section .hero-title {
-    font-size: 3.5rem;
-    line-height: 1.05;
+    font-size: 4.4rem;
+    line-height: 0.98;
   }
 
   .hero-section .hero-subtitle {
-    font-size: 2.5rem;
+    font-size: 4.75rem;
+    line-height: 1.07;
   }
 
   .hero-section .hero-image {
@@ -149,12 +173,40 @@
     min-height: auto;
   }
 
+  .hero-section .hero-title {
+    font-size: 3.85rem;
+  }
+
+  .hero-section .hero-subtitle {
+    font-size: 3.6rem;
+    line-height: 1.07;
+  }
+
   .hero-section .hero-cta {
     width: 100%;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-section .hero-title {
+    font-size: 2.9rem;
+    line-height: 0.98;
+  }
+
+  .hero-section .hero-subtitle {
+    font-size: 2.6rem;
+    line-height: 1.07;
+  }
+
+  .hero-image-frame {
+    width: min(100%, 26rem);
   }
 }
 
 @theme inline {
+  --font-sans:
+    var(--font-helvetica-now), "Helvetica Neue", Helvetica, Arial, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

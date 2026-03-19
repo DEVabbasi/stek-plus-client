@@ -19,7 +19,7 @@ function isNavActive(href, pathname) {
 const navItems = [
   { name: "Home", href: "/" },
   { name: "Over ons", href: "/over-ons" },
-  { name: "Diensten", href: "/tekenwerk" },
+  { name: "Tekenwerk", href: "/tekenwerk" },
   { name: "Projecten", href: "/projecten" },
 ];
 
@@ -28,16 +28,16 @@ export function Header() {
   const { scrollToContact } = useContactScroll();
 
   return (
-    <header className="w-full bg-[#f5f7fa] py-3 md:py-4">
+    <header className="w-full bg-white py-3 md:py-4">
       <section className="flex items-center justify-between max-w-8xl mx-auto px-4 md:px-6 lg:px-10">
         {/* Logo — ONE instance only */}
         <Link href="/" className="flex items-center z-10">
           <Image
             src="/icons/headerLogo1.svg"
             alt="STEK+ Logo"
-            width={120}
-            height={40}
-            className="h-12 md:h-16 w-auto"
+            width={260}
+            height={66}
+            className="h-20 md:h-16 w-auto"
             priority
           />
         </Link>
