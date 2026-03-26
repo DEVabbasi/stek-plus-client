@@ -32,7 +32,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="nl" className={helveticaNowDisplay.variable}>
+    <html lang="nl" translate="no" className={helveticaNowDisplay.variable}>
+      <head>
+        <meta name="google" content="notranslate" />
+      </head>
       <body className={`${helveticaNowDisplay.variable} font-sans antialiased`}>
         <Providers>
           <Header />

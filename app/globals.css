@@ -7,6 +7,9 @@
 /* =========================
    DESIGN SYSTEM VARIABLES
 ========================= */
+html {
+  translate: no;
+}
 
 :root {
   /* Primary Brand Gradient */

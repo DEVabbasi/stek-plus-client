@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Facebook, Twitter } from "lucide-react";
 
 const footerLinks = {
   snelkoppelingen: [
@@ -11,6 +10,24 @@ const footerLinks = {
     { name: "Portefeuille", href: "/projecten" },
   ],
 };
+
+const socialLinks = [
+  {
+    name: "Facebook",
+    href: "",
+    icon: "/icons/footerIcons/fb.svg",
+  },
+  {
+    name: "Instagram",
+    href: "",
+    icon: "/icons/footerIcons/insta.svg",
+  },
+  {
+    name: "TikTok",
+    href: "",
+    icon: "/icons/footerIcons/tiktok.svg",
+  },
+];
 
 export function Footer() {
   return (
@@ -64,33 +81,22 @@ export function Footer() {
                 Volg Ons Op Socialmedia
               </h3>
               <div className="flex gap-2.5 lg:gap-3">
-                <a
-                  href=""
-                  aria-label="Facebook"
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/80 transition-all hover:bg-white hover:text-[#1072B7] lg:h-10 lg:w-10"
-                >
-                  <Facebook size={15} />
-                </a>
-                <a
-                  href=""
-                  aria-label="Twitter"
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/80 transition-all hover:bg-white hover:text-[#1072B7] lg:h-10 lg:w-10"
-                >
-                  <Twitter size={15} />
-                </a>
-                <a
-                  href=""
-                  aria-label="TikTok"
-                  className="group flex h-9 w-9 items-center justify-center rounded-full border border-white/80 transition-all hover:bg-white lg:h-10 lg:w-10"
-                >
-                  <img
-                    src="/icons/tiktok.svg"
-                    alt=""
-                    width={14}
-                    height={14}
-                    className="h-[14px] w-[14px] transition-all [filter:brightness(0)_invert(1)] group-hover:[filter:invert(30%)_sepia(80%)_saturate(600%)_hue-rotate(185deg)_brightness(90%)]"
-                  />
-                </a>
+                {socialLinks.map((socialLink) => (
+                  <a
+                    key={socialLink.name}
+                    href={socialLink.href}
+                    aria-label={socialLink.name}
+                    className="group flex h-9 w-9 items-center justify-center rounded-full border border-white/80 bg-transparent transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_10px_24px_rgba(16,114,183,0.2)] lg:h-10 lg:w-10"
+                  >
+                    <Image
+                      src={socialLink.icon}
+                      alt=""
+                      width={16}
+                      height={16}
+                      className="h-[15px] w-[15px] object-contain transition-all duration-300 [filter:brightness(0)_invert(1)] group-hover:[filter:invert(31%)_sepia(92%)_saturate(1117%)_hue-rotate(184deg)_brightness(90%)_contrast(93%)] lg:h-4 lg:w-4"
+                    />
+                  </a>
+                ))}
               </div>
             </div>
 

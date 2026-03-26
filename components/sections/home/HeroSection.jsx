@@ -12,7 +12,7 @@ export function HeroSection() {
             <h1 className="hero-title hero-display-primary max-w-[11ch]">
               Specialisten In Staalconstructie
             </h1>
-            <h2 className="hero-subtitle hero-display-secondary max-w-[10ch] opacity-90">
+            <h2 className="hero-subtitle hero-display-secondary font-extralight max-w-[10ch] opacity-90">
               Tekenwerk
             </h2>
           </div>
@@ -23,7 +23,7 @@ export function HeroSection() {
           </p>
           <Link href="/#contact">
             <Button className="hero-cta bg-white text-[#1072B7] hover:bg-gray-50 px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold h-auto mt-4 w-full sm:w-auto">
-              Neem contact met ons op of vraag om offerte aan
+              Neem contact met ons op of vraag een offerte aan
             </Button>
           </Link>
         </div>

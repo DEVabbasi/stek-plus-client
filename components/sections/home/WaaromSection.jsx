@@ -8,7 +8,7 @@ export function WaaromSection() {
     },
     {
       icon: "/icons/warromSectionIcons/Felxibele.svg",
-      label: "Flexibele Inzet (Tijdelijk of Structureel)",
+      label: "Flexibele Inzet (Tijdelijk Of Structureel)",
     },
     {
       icon: "/icons/warromSectionIcons/Snelle.svg",
@@ -20,47 +20,52 @@ export function WaaromSection() {
     },
     {
       icon: "/icons/warromSectionIcons/Meedenken.svg",
-      label: "Praktische Oplossingen",
+      label: "Meedenken In Praktische Oplossingen",
     },
     {
       icon: "/icons/warromSectionIcons/Snelle levering van tekenwerk.svg",
-      label: "Snelle Levering Tekenwerk",
+      label: "Snelle Levering Van Tekenwerk",
     },
   ];
 
   return (
-    <section className="relative overflow-visible bg-brand w-full py-12 md:py-14 px-4 text-white">
-      <div className="container-custom relative z-10">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-white">
+    <section className="relative w-full overflow-hidden bg-brand px-4 py-14 text-white md:py-16 lg:py-20 2xl:py-24">
+      <div className="container-custom relative z-10 max-w-[1840px]">
+        <h2 className="mx-auto max-w-[15ch] text-center text-[clamp(2.85rem,6vw,5rem)] font-black uppercase leading-[0.975] tracking-[-0.05em] text-white">
           Waarom met ons samenwerken?
         </h2>
+        <p className="mt-4 text-center text-sm font-light text-white/88 md:text-base">
+          Betrouwbare Partner In Tekenwerk
+        </p>
 
-        <div className="border-t border-white/20 mt-6 mb-8 mx-auto w-full max-w-4xl"></div>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-10 gap-x-4 max-w-6xl mx-auto">
-          {items.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center text-center gap-3"
-            >
-              <div className="w-7 h-7 relative flex items-center justify-center">
-                <Image
-                  src={item.icon}
-                  alt={item.label}
-                  width={28}
-                  height={28}
-                  className="brightness-0 invert object-contain"
-                />
+        <div className="relative mx-auto mt-10 max-w-[1757px] md:mt-12 lg:mt-14">
+          <div className="hidden md:block md:border-t md:border-white/45" />
+          <div className="pointer-events-none absolute left-0 right-0 top-[1.2rem] hidden border-t border-white/45 md:block lg:top-[1.35rem] 2xl:top-[1.5rem]" />
+          <div className="grid grid-cols-2 gap-x-5 gap-y-8 pt-0 sm:grid-cols-3 md:gap-x-6 md:gap-y-10 md:pt-5 lg:grid-cols-6 lg:gap-x-8 lg:pt-6 2xl:gap-x-10">
+            {items.map((item, index) => (
+              <div
+                key={index}
+                className="relative flex flex-col items-center gap-4 text-center md:gap-5"
+              >
+                <div className="relative flex h-9 w-9 items-center justify-center rounded-full bg-transparent md:h-10 md:w-10 lg:h-11 lg:w-11">
+                  <Image
+                    src={item.icon}
+                    alt={item.label}
+                    width={22}
+                    height={22}
+                    className="h-[18px] w-[18px] brightness-0 invert object-contain md:h-[20px] md:w-[20px] lg:h-[22px] lg:w-[22px]"
+                  />
+                </div>
+                <span className="max-w-[12ch] text-center text-[12px] font-light leading-[1.35] text-white/92 sm:max-w-[14ch] md:text-[13px] lg:max-w-[15ch] lg:text-[15px]">
+                  {item.label}
+                </span>
               </div>
-              <span className="text-white text-[11px] md:text-xs font-medium leading-tight text-center max-w-[140px] uppercase tracking-wider opacity-90">
-                {item.label}
-              </span>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        <p className="text-center text-white/80 italic text-sm md:text-base mt-10 font-light">
-          &quot;Wij functioneren als verlengstuk van uw organisatie.&quot;
+        <p className="mt-12 text-center text-sm font-light text-white/90 md:mt-14 md:text-base">
+          Wij functioneren als verlengstuk van uw organisatie.
         </p>
       </div>
     </section>
