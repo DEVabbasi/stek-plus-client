@@ -19,7 +19,7 @@ function isNavActive(href, pathname) {
 const navItems = [
   { name: "Home", href: "/" },
   { name: "Over ons", href: "/over-ons" },
-  { name: "Tekenwerk", href: "/tekenwerk" },
+  { name: "Diensten", href: "/tekenwerk" },
   { name: "Projecten", href: "/projecten" },
 ];
 

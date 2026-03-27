@@ -12,7 +12,7 @@ export function HeroSection() {
             <h1 className="hero-title hero-display-primary max-w-[11ch]">
               Specialisten In Staalconstructie
             </h1>
-            <h2 className="hero-subtitle hero-display-secondary font-extralight max-w-[10ch] opacity-90">
+            <h2 className="hero-subtitle hero-display-secondary max-w-[10ch] opacity-90">
               Tekenwerk
             </h2>
           </div>

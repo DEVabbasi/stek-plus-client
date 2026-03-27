@@ -40,21 +40,21 @@ export function ServicesSection() {
           </h2>
         </div>
 
-        <div className="mx-auto grid max-w-[980px] grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-[14px]">
+        <div className="mx-auto grid max-w-[1140px] grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-5">
           {services.map((service) => (
             <Link href="/tekenwerk" key={service.id} className="block">
               <Card
-                className="group flex min-h-[14.5rem] flex-col justify-between rounded-none border border-[#e8e8e8] bg-[#f5f4f2] p-6 shadow-[0_12px_32px_rgba(17,17,17,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:bg-[linear-gradient(271.53deg,#88C8F7_5.9%,#1072B7_77.5%)] hover:shadow-[0_18px_40px_rgba(16,114,183,0.24)] sm:min-h-[15.5rem] sm:p-7 lg:min-h-[16.25rem] lg:p-6"
+                className="group flex min-h-[14rem] flex-col justify-between rounded-none border border-[#e8e8e8] bg-[#f5f4f2] p-6 shadow-[0_12px_32px_rgba(17,17,17,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:bg-[linear-gradient(271.53deg,#88C8F7_5.9%,#1072B7_77.5%)] hover:shadow-[0_18px_40px_rgba(16,114,183,0.24)] sm:min-h-[15rem] sm:p-7 lg:min-h-[15.25rem] lg:p-7"
               >
                 <div className="space-y-5">
-                  <div className="text-[12px] font-light uppercase leading-none tracking-[0.42em] text-black/70 transition-colors duration-300 group-hover:text-white/85">
+                  <div className="text-[11px] font-light uppercase leading-none tracking-[0.38em] text-black/70 transition-colors duration-300 group-hover:text-white/85 sm:text-[12px]">
                     STEK+
                   </div>
-                  <h3 className="max-w-[11ch] text-[28px] font-bold leading-[1.05] tracking-[-0.03em] text-black transition-colors duration-300 group-hover:text-white sm:max-w-[10.5ch] lg:max-w-[11ch]">
+                  <h3 className="max-w-[14ch] text-[24px] font-bold leading-[1.08] tracking-[-0.03em] text-black transition-colors duration-300 group-hover:text-white sm:max-w-[13ch] sm:text-[26px] lg:max-w-[14ch] lg:text-[28px]">
                     {service.title}
                   </h3>
                 </div>
-                <div className="flex justify-start pt-8">
+                <div className="flex justify-start pt-7 sm:pt-8">
                   <Image
                     src="/icons/CustomArrowBlack.svg"
                     alt="Arrow Icon"

@@ -133,12 +133,16 @@ html {
 }
 
 .hero-display-secondary {
+  font-family:
+    var(--font-helvetica-now), "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: clamp(2.6rem, 5.2vw + 0.65rem, 6.25rem);
   line-height: 1.07;
   letter-spacing: 0;
   font-weight: 300;
-  font-style: oblique 12deg;
-  font-synthesis: style;
+  font-style: italic;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
   text-wrap: balance;
 }
 
