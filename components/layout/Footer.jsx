@@ -14,18 +14,23 @@ const footerLinks = {
 const socialLinks = [
   {
     name: "Facebook",
-    href: "",
+    href: "https://www.facebook.com/people/STEK/61572920711320/?locale=nl_NL",
     icon: "/icons/footerIcons/fb.svg",
   },
   {
     name: "Instagram",
-    href: "",
+    href: "https://www.instagram.com/stek_plus/",
     icon: "/icons/footerIcons/insta.svg",
   },
   {
     name: "TikTok",
-    href: "",
+    href: "https://www.tiktok.com/@stekplus",
     icon: "/icons/footerIcons/tiktok.svg",
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/stijn-van-der-heijden-49ba69b8/",
+    icon: "/icons/footerIcons/linkedin.svg",
   },
 ];
 

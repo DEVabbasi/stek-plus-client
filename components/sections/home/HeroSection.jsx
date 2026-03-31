@@ -16,7 +16,7 @@ export function HeroSection() {
               Tekenwerk
             </h2>
           </div>
-          <p className="hero-body text-sm sm:text-base md:text-lg lg:text-xl max-w-[42rem] mx-auto sm:mx-0 leading-relaxed opacity-90 pt-2">
+          <p className="hero-body text-sm sm:text-base md:text-lg lg:text-xl max-w-[42rem] mx-auto sm:mx-0 leading-relaxed  pt-2">
             Wij ondersteunen staalproductiebedrijven met nauwkeurige,
             productieklare staalconstructietekeningen. Betrouwbaar, flexibel en
             technisch sterk onderbouwd.

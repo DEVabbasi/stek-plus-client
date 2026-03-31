@@ -37,8 +37,8 @@ export function Header() {
             alt="STEK+ Logo"
             width={260}
             height={66}
-            className="h-20 md:h-16 w-auto"
             priority
+            unoptimized
           />
         </Link>
 
@@ -54,7 +54,7 @@ export function Header() {
                   className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
                     active
                       ? "bg-brand text-white"
-                      : "text-gray-700 hover:text-[#1072B7]"
+                      : "text-black hover:text-[#1072B7]"
                   }`}
                 >
                   {item.name}
@@ -65,7 +65,7 @@ export function Header() {
             <Link
               href="/#contact"
               onClick={scrollToContact}
-              className="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-700 hover:text-[#1072B7]"
+              className="px-5 py-2 rounded-full text-sm font-medium transition-all text-black hover:text-[#1072B7]"
             >
               Contact
             </Link>
