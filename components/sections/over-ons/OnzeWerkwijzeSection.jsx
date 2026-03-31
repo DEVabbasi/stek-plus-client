@@ -33,7 +33,7 @@ export function OnzeWerkwijzeSection() {
           Onze werkwijze
         </h2>
 
-        <p className="text-sm md:text-base text-center text-gray-500 mt-3 max-w-xl mx-auto leading-relaxed">
+        <p className="text-sm md:text-base text-center text-black mt-3 max-w-xl mx-auto leading-relaxed">
           Wij werken als externe tekenpartner voor staalproductiebedrijven. dat
           betekent dat wij
         </p>

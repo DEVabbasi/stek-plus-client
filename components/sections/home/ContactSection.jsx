@@ -33,7 +33,6 @@ export function ContactSection({ preselectedDienst, title, subtitle }) {
     },
   });
 
-  // Reset form on success
   useEffect(() => {
     if (status === "succeeded") {
       reset();
@@ -51,34 +50,37 @@ export function ContactSection({ preselectedDienst, title, subtitle }) {
   return (
     <section
       id="contact"
-      className="relative w-full overflow-visible bg-white px-4 pb-20 pt-24"
+      className="relative w-full overflow-visible bg-white px-4 pb-20 pt-20 md:pt-24"
     >
       <div className="relative z-10 mx-auto max-w-[1080px]">
-        <h2 className="text-center text-[3rem] font-extrabold leading-[0.96] tracking-[0] text-[#111] md:text-[4.5rem] lg:text-[80px] lg:leading-[78px]">
+        <h2 className="text-center text-[2.7rem] font-extrabold leading-[0.96] tracking-[-0.04em] text-[#111] md:text-[4rem] lg:text-[4.45rem] lg:whitespace-nowrap">
           {title || "Neem contact met ons op"}
         </h2>
-        <div className="mx-auto mt-4 max-w-[860px]">
-          <p className="text-center text-[22px] font-bold leading-[1.15] text-[#111] md:text-[28px]">
+
+        <div className="mx-auto mt-2.5 max-w-[760px]">
+          <p className="text-center text-[15px] font-bold leading-[1.15] text-[#111] md:text-[16px]">
             Capaciteit nodig? wij denken graag mee.
           </p>
-          <p className="mx-auto mt-2 max-w-[860px] text-center text-[18px] leading-[1.35] text-[#111] md:text-[22px]">
-            Heeft u tijdelijke onderbezetting of zoekt u structurele
-            ondersteuning in tekenwerk? Neem vrijblijvend contact met ons op om
-            de mogelijkheden te bespreken.
+          <p className="mx-auto mt-1 max-w-[760px] text-center text-[13px] leading-[1.35] text-[#111] md:text-[14px]">
+            {subtitle ||
+              "Heeft u tijdelijke onderbezetting of zoekt u structurele ondersteuning in tekenwerk? Neem vrijblijvend contact met ons op om de mogelijkheden te bespreken."}
           </p>
         </div>
 
         {status === "succeeded" ? (
-          <div className="mt-8 p-6 bg-green-50 border border-green-100 rounded-lg text-center animate-in fade-in zoom-in duration-300">
-            <p className="text-green-800 font-bold text-lg">
+          <div className="mt-8 rounded-lg border border-green-100 bg-green-50 p-6 text-center animate-in fade-in zoom-in duration-300">
+            <p className="text-lg font-bold text-green-800">
               Bedankt! Uw aanvraag is verzonden.
             </p>
-            <p className="text-green-600 text-sm mt-1">
+            <p className="mt-1 text-sm text-green-600">
               Wij nemen zo spoedig mogelijk contact met u op.
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-6">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="mx-auto mt-6 max-w-[790px] space-y-3 md:mt-8"
+          >
             <ContactFormBody
               register={register}
               errors={errors}
@@ -87,7 +89,7 @@ export function ContactSection({ preselectedDienst, title, subtitle }) {
             />
 
             {error && (
-              <p className="text-red-500 text-sm text-center bg-red-50 p-3 rounded">
+              <p className="rounded bg-red-50 p-3 text-center text-sm text-red-500">
                 {error}
               </p>
             )}
@@ -97,15 +99,15 @@ export function ContactSection({ preselectedDienst, title, subtitle }) {
               size="md"
               fullWidth
               disabled={status === "loading"}
-              className="flex h-[80px] w-full items-center justify-center gap-3 rounded-none text-[24px] font-medium uppercase tracking-[-0.01em]"
+              className="flex h-[52px] w-full items-center justify-center gap-2 rounded-none text-[13px] font-normal uppercase tracking-[-0.01em] md:text-[14px]"
             >
               {status === "loading" ? "VERZENDEN..." : "VERSTUREN"}
               <Image
                 src="/icons/CustomArrowBlack.svg"
                 alt=""
-                width={22}
-                height={22}
-                className="h-[22px] w-[22px] brightness-0 invert"
+                width={14}
+                height={14}
+                className="h-[14px] w-[14px] brightness-0 invert"
               />
             </BrandButton>
           </form>

@@ -38,7 +38,7 @@ export function ProjectDetailClient({ project }) {
           <span
             className={cn(
               "self-start inline-block rounded-full px-3 py-1 text-xs font-semibold",
-              getCategoryStyles(project.category)
+              getCategoryStyles(project.category),
             )}
           >
             {project.categoryLabel}
@@ -48,11 +48,11 @@ export function ProjectDetailClient({ project }) {
             {project.title}
           </h1>
 
-          <p className="mt-4 text-sm leading-relaxed text-gray-600 md:text-base">
+          <p className="mt-4 text-sm leading-relaxed text-black md:text-base">
             {project.description}
           </p>
 
-          <p className="mt-6 text-sm font-medium text-gray-500">
+          <p className="mt-6 text-sm font-medium text-black">
             Interesse in soortgelijk werk?
           </p>
           <div className="mt-3">

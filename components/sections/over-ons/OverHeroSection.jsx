@@ -3,16 +3,6 @@ import Image from "next/image";
 export default function OverHeroSection() {
   return (
     <section className="relative overflow-hidden bg-brand min-h-[280px] py-12 px-6 md:px-16 lg:px-24">
-      {/* Background Decorator */}
-      <div className="absolute bottom-0 left-0 w-14 h-14 md:w-20 md:h-20">
-        <Image
-          src="/icons/vectorDesign1.svg"
-          alt=""
-          fill
-          className="object-contain"
-        />
-      </div>
-
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-0 h-full relative z-10">
         {/* LEFT — text block */}
         <div className="w-full md:w-[60%] text-white">

@@ -47,22 +47,22 @@ export function Footer() {
               height={121}
               className="h-auto w-[220px] sm:w-[250px] lg:w-[278.83px]"
             />
-            <p className="max-w-[20rem] text-[22px] font-bold leading-[1.16] tracking-normal text-white sm:max-w-[22rem] lg:max-w-[24rem] lg:text-[30px] lg:leading-[35px]">
+            <p className="mt-2 max-w-[20rem] text-[17px] font-semibold leading-[1.28] tracking-normal text-white sm:max-w-[22rem] md:text-[18px] lg:mt-3 lg:max-w-[24rem] lg:text-[22px] lg:leading-[29px]">
               Specialisten In Het Tekenen Van Staalconstructies Betrouwbaar
               Flexibel En Technisch Goed Onderlegd.
             </p>
           </div>
 
           <div className="sm:justify-self-start lg:self-start">
-            <h3 className="mb-4 text-[22px] font-bold leading-[1.3] text-white lg:mb-5 lg:text-[25px] lg:leading-[38px]">
+            <h3 className="mb-3 text-[18px] font-bold leading-[1.25] text-white lg:mb-4 lg:text-[20px] lg:leading-[1.3]">
               Snelkoppelingen
             </h3>
-            <ul className="space-y-2.5 lg:space-y-3">
+            <ul className="space-y-2 lg:space-y-2.5">
               {footerLinks.snelkoppelingen.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-[17px] font-medium leading-[1.1] tracking-[-0.01em] text-white transition-all hover:underline lg:text-[20px] lg:leading-[22px]"
+                    className="text-[14px] font-medium leading-[1.2] tracking-[-0.01em] text-white transition-all hover:underline md:text-[15px] lg:text-[16px]"
                   >
                     {link.name}
                   </Link>
@@ -72,17 +72,17 @@ export function Footer() {
           </div>
 
           <div className="sm:justify-self-start lg:self-start">
-            <h3 className="mb-4 text-[22px] font-bold leading-[1.3] text-white lg:mb-5 lg:text-[25px] lg:leading-[38px]">
+            <h3 className="mb-3 text-[18px] font-bold leading-[1.25] text-white lg:mb-4 lg:text-[20px] lg:leading-[1.3]">
               Adres
             </h3>
-            <p className="max-w-[16rem] text-[17px] font-medium leading-[1.1] tracking-[-0.01em] text-white lg:text-[20px] lg:leading-[22px]">
+            <p className="max-w-[16rem] text-[14px] font-medium leading-[1.25] tracking-[-0.01em] text-white md:text-[15px] lg:text-[16px]">
               Bulksestraat 17, 4031JW Ingen
             </p>
           </div>
 
           <div className="space-y-8 sm:col-span-2 lg:col-span-1 lg:justify-self-start">
             <div>
-              <h3 className="mb-4 text-[22px] font-bold leading-[1.3] text-white lg:mb-5 lg:text-[25px] lg:leading-[38px]">
+              <h3 className="mb-3 text-[18px] font-bold leading-[1.25] text-white lg:mb-4 lg:text-[20px] lg:leading-[1.3]">
                 Volg Ons Op Socialmedia
               </h3>
               <div className="flex gap-2.5 lg:gap-3">
@@ -106,19 +106,19 @@ export function Footer() {
             </div>
 
             <div>
-              <h3 className="mb-3 text-[22px] font-bold leading-[1.3] text-white lg:mb-4 lg:text-[25px] lg:leading-[38px]">
+              <h3 className="mb-2.5 text-[18px] font-bold leading-[1.25] text-white lg:mb-3 lg:text-[20px] lg:leading-[1.3]">
                 KVK Nummer
               </h3>
-              <p className="text-[17px] font-medium leading-[1.1] tracking-[-0.01em] text-white lg:text-[20px] lg:leading-[22px]">
+              <p className="text-[14px] font-medium leading-[1.25] tracking-[-0.01em] text-white md:text-[15px] lg:text-[16px]">
                 95272526
               </p>
             </div>
 
             <div>
-              <h3 className="mb-3 text-[22px] font-bold leading-[1.3] text-white lg:mb-4 lg:text-[25px] lg:leading-[38px]">
+              <h3 className="mb-2.5 text-[18px] font-bold leading-[1.25] text-white lg:mb-3 lg:text-[20px] lg:leading-[1.3]">
                 BTW-Identificatienummer
               </h3>
-              <p className="text-[17px] font-medium leading-[1.1] tracking-[-0.01em] text-white lg:text-[20px] lg:leading-[22px]">
+              <p className="text-[14px] font-medium leading-[1.25] tracking-[-0.01em] text-white md:text-[15px] lg:text-[16px]">
                 NL005142783B3
               </p>
             </div>

@@ -11,7 +11,7 @@ export function OnzeVisieSection() {
   return (
     <section className="relative overflow-hidden bg-white px-4 pb-16 pt-4">
       <div className="mx-auto max-w-7xl">
-        <h2 className="mt-8 text-center text-[3rem] font-extrabold uppercase leading-[0.98] tracking-[0] text-black md:text-[4rem] lg:text-[80px] lg:leading-[78px]">
+        <h2 className="mt-8 text-center text-[3rem] font-extrabold  leading-[0.98] tracking-[0] text-black md:text-[4rem] lg:text-[80px] lg:leading-[78px]">
           Onze visie
         </h2>
 

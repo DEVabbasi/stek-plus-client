@@ -13,14 +13,14 @@ export default function SamenwerkingSection() {
         </h2>
 
         {/* Paragraph 1 */}
-        <p className="text-sm md:text-base text-gray-500 leading-relaxed">
+        <p className="text-sm md:text-base text-black leading-relaxed">
           Wij geloven in langdurige samenwerkingen gebaseerd op vertrouwen en
           kwaliteit. door korte communicatielijnen en duidelijke afspraken
           zorgen wij voor continuïteit in uw projecten.
         </p>
 
         {/* Paragraph 2 */}
-        <p className="text-sm md:text-base text-gray-500 leading-relaxed -mt-1">
+        <p className="text-sm md:text-base text-black leading-relaxed -mt-1">
           Bent u op zoek naar een betrouwbare partner in staalconstructie
           tekenwerk? wij maken graag kennis om te bespreken hoe wij uw
           organisatie kunnen ondersteunen. maak kennis met ons.
@@ -31,22 +31,13 @@ export default function SamenwerkingSection() {
             <BrandButton
               size="lg"
               fullWidth
-              className="uppercase tracking-widest bg-brand rounded-md"
+              className="uppercase tracking-widest bg-brand"
             >
               MAAK KENNIS MET ONS
               <ArrowRight className="w-4 h-4 ml-1" />
             </BrandButton>
           </Link>
         </div>
-      </div>
-
-      <div className="absolute bottom-0 right-0 w-16 h-16 md:w-24 md:h-24 pointer-events-none">
-        <Image
-          src="/icons/vectorDesign2.svg"
-          alt=""
-          fill
-          className="object-contain object-bottom-right"
-        />
       </div>
     </section>
   );
