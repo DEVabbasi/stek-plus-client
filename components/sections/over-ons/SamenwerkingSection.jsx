@@ -34,7 +34,13 @@ export default function SamenwerkingSection() {
               className="uppercase tracking-widest bg-brand"
             >
               MAAK KENNIS MET ONS
-              <ArrowRight className="w-4 h-4 ml-1" />
+              <Image
+                src="/icons/CustomArrowBlack.svg"
+                alt=""
+                width={14}
+                height={14}
+                className="h-[14px] w-[14px] brightness-0 invert"
+              />
             </BrandButton>
           </Link>
         </div>

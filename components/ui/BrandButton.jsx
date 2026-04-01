@@ -12,7 +12,7 @@ export function BrandButton({
   const sizeClasses = {
     sm: "px-4 py-2 text-sm",
     md: "px-6 py-3 text-sm md:text-base",
-    lg: "px-8 py-4 text-base md:text-lg",
+    lg: "px-8 py-4 text-sm md:text-lg",
   };
 
   return (

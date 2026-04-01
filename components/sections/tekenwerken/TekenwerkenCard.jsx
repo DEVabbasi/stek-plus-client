@@ -55,7 +55,7 @@ export function TekenwerkenCard({ product }) {
 
         <div>
           <Link href="/#contact" onClick={scrollToContact}>
-            <BrandButton size="lg" className="px-6 sm:px-8 w-full sm:w-auto">
+            <BrandButton size="lg" className="px-10 sm:px-8 w-full sm:w-auto">
               Boek nu
             </BrandButton>
           </Link>

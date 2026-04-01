@@ -40,13 +40,15 @@ export function Footer() {
       <section className="w-full px-5 sm:px-8 md:px-10 lg:px-12 xl:px-16">
         <div className="mx-auto grid w-full max-w-[1760px] grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-x-10 lg:grid-cols-[minmax(320px,0.96fr)_minmax(170px,0.34fr)_minmax(220px,0.42fr)_minmax(360px,0.62fr)] lg:items-start lg:gap-x-14 xl:gap-x-16">
           <div className="flex flex-col gap-7 sm:col-span-2 lg:col-span-1 lg:max-w-[28rem]">
-            <Image
-              src="/icons/footerLogo.svg"
-              alt="STEK+ Staaltechnisch Tekenburo"
-              width={279}
-              height={121}
-              className="h-auto w-[220px] sm:w-[250px] lg:w-[278.83px]"
-            />
+            <Link href="/" className="flex items-center z-10">
+              <Image
+                src="/icons/footerLogo.svg"
+                alt="STEK+ Staaltechnisch Tekenburo"
+                width={279}
+                height={121}
+                className="h-auto w-[220px] sm:w-[250px] lg:w-[278.83px]"
+              />
+            </Link>
             <p className="mt-2 max-w-[20rem] text-[17px] font-semibold leading-[1.28] tracking-normal text-white sm:max-w-[22rem] md:text-[18px] lg:mt-3 lg:max-w-[24rem] lg:text-[22px] lg:leading-[29px]">
               Specialisten In Het Tekenen Van Staalconstructies Betrouwbaar
               Flexibel En Technisch Goed Onderlegd.

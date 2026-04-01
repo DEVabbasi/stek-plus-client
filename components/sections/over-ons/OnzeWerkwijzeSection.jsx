@@ -3,13 +3,13 @@ import Image from "next/image";
 export function OnzeWerkwijzeSection() {
   const werkwijzeItems = [
     {
-      iconFile: "Black.svg",
+      iconFile: "Black-1.svg",
       title: "Inschakelen bij capaciteitsproblemen",
       description:
         "Kom tussenbeide bij capaciteitstekorten om uw productie draaiende te houden.",
     },
     {
-      iconFile: "Black-1.svg",
+      iconFile: "Black.svg",
       title: "Ondersteunen bij grote of complexe projecten",
       description:
         "Ondersteun grote of complexe projecten die gespecialiseerde aandacht vereisen.",
@@ -27,13 +27,13 @@ export function OnzeWerkwijzeSection() {
   ];
 
   return (
-    <section className="bg-white py-16 px-4">
+    <section className="bg-white py-16 px-2">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-black">
           Onze werkwijze
         </h2>
 
-        <p className="text-sm md:text-base text-center text-black mt-3 max-w-xl mx-auto leading-relaxed">
+        <p className="text-sm md:text-base text-center text-black mt-3  mx-auto leading-relaxed">
           Wij werken als externe tekenpartner voor staalproductiebedrijven. dat
           betekent dat wij
         </p>
@@ -42,16 +42,17 @@ export function OnzeWerkwijzeSection() {
           {werkwijzeItems.map((item) => (
             <div
               key={item.title}
-              className="border border-gray-200 rounded-2xl bg-white p-5 md:p-6 flex flex-col gap-3"
+              className="border border-gray-200 rounded-2xl bg-white p-8 md:p-6 flex flex-col gap-3"
             >
-              <Image
-                src={`/icons/OnzeSectionIcons/${item.iconFile}`}
-                alt=""
-                width={32}
-                height={32}
-                className="object-contain"
-              />
-
+              <span className="border border-gray-200 rounded-2xl bg-gray-50 w-14 h-14 flex items-center justify-center">
+                <Image
+                  src={`/icons/OnzeSectionIcons/${item.iconFile}`}
+                  alt=""
+                  width={28}
+                  height={28}
+                  className="object-contain"
+                />
+              </span>
               <h3 className="text-base font-bold text-black leading-snug">
                 {item.title}
               </h3>
