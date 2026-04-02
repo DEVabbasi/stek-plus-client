@@ -8,11 +8,7 @@ export function WaaromSection() {
     },
     {
       icon: "/icons/warromSectionIcons/Felxibele.svg",
-      label: [
-        "Flexibele Inzet (Tijdelijk Of",
-        "Structureel)Inzet Tijdelijk Of",
-        "Langdurig",
-      ],
+      label: ["Flexibele Inzet (Tijdelijk, Structureel of Langdurig)"],
     },
     {
       icon: "/icons/warromSectionIcons/Snelle.svg",
