@@ -39,10 +39,13 @@ export function WaaromSection() {
         </p>
 
         <div className="mx-auto mt-10 max-w-[1920px] md:mt-12 lg:mt-14">
-          <div className="border-y border-white/45 px-5 py-3 sm:px-8 md:px-10 lg:px-12 xl:px-[38px]">
-            <div className="grid grid-cols-2 gap-x-7 gap-y-5 sm:grid-cols-3 md:gap-x-10 lg:grid-cols-6 lg:gap-x-12 xl:gap-x-16">
+          <div className="px-2 py-1 sm:px-8 md:border-y md:border-white/45 md:px-10 md:py-4 lg:px-12 xl:px-[38px]">
+            <div className="grid grid-cols-2 gap-x-5 gap-y-8 sm:grid-cols-3 md:gap-x-10 md:gap-y-10 lg:grid-cols-6 lg:gap-x-12 xl:gap-x-16">
               {items.map((item, index) => (
-                <div key={index} className="flex min-w-0 justify-center">
+                <div
+                  key={index}
+                  className="flex min-w-0 flex-col items-center text-center"
+                >
                   <div className="relative flex h-14 w-14 items-center justify-center md:h-16 md:w-16 lg:h-[72px] lg:w-[72px]">
                     <Image
                       src={item.icon}
@@ -52,26 +55,16 @@ export function WaaromSection() {
                       className="h-8 w-8 brightness-0 invert object-contain md:h-9 md:w-9 lg:h-11 lg:w-11"
                     />
                   </div>
+                  <span className="mt-4 max-w-[19ch] text-[12px] font-light leading-[1.35] text-white/92 md:mt-5 md:text-[13px] lg:text-[15px]">
+                    {item.label.map((line) => (
+                      <span key={line} className="block">
+                        {line}
+                      </span>
+                    ))}
+                  </span>
                 </div>
               ))}
             </div>
-          </div>
-
-          <div className="mt-3 grid grid-cols-2 gap-x-7 gap-y-6 px-3 text-center sm:grid-cols-3 md:mt-4 md:gap-x-10 lg:grid-cols-6 lg:gap-x-12 xl:gap-x-16">
-            {items.map((item, index) => (
-              <div
-                key={index}
-                className="mx-auto flex max-w-[19ch] items-start justify-center text-center"
-              >
-                <span className="text-[12px] font-light leading-[1.35] text-white/92 md:text-[13px] lg:text-[15px]">
-                  {item.label.map((line) => (
-                    <span key={line} className="block">
-                      {line}
-                    </span>
-                  ))}
-                </span>
-              </div>
-            ))}
           </div>
         </div>
 

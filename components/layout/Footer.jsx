@@ -7,7 +7,7 @@ const footerLinks = {
     { name: "Over Ons", href: "/over-ons" },
     { name: "Diensten", href: "/tekenwerk" },
     { name: "Contact", href: "/#contact" },
-    { name: "Portefeuille", href: "/projecten" },
+    { name: "Projecten", href: "/projecten" },
   ],
 };
 
@@ -29,7 +29,7 @@ const socialLinks = [
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/stijn-van-der-heijden-49ba69b8/",
+    href: "https://www.linkedin.com/company/stek-plus/",
     icon: "/icons/footerIcons/linkedin.svg",
   },
 ];

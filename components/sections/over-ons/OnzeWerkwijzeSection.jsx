@@ -27,18 +27,18 @@ export function OnzeWerkwijzeSection() {
   ];
 
   return (
-    <section className="bg-white py-16 px-2">
+    <section className="bg-white py-16 sm:py-10 px-2">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-black">
           Onze werkwijze
         </h2>
 
-        <p className="text-sm md:text-base text-center text-black mt-3  mx-auto leading-relaxed">
+        <p className="text-sm md:text-base text-center text-black mt-3 pr-4 pl-4 mx-auto leading-relaxed">
           Wij werken als externe tekenpartner voor staalproductiebedrijven. dat
           betekent dat wij
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-5 sm:mt-6 md:mt-8">
           {werkwijzeItems.map((item) => (
             <div
               key={item.title}

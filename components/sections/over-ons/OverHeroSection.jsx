@@ -9,14 +9,14 @@ export default function OverHeroSection() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
             Over stek+
           </h1>
-          <p className="text-sm md:text-base text-white/90 mt-4 leading-normal text-justify max-w-md">
+          <p className="text-sm md:text-base text-white/90 mt-4 leading-relaxed max-w-md">
             Stek+ is gespecialiseerd in het uitwerken van staalconstructies voor
             productiebedrijven. Wij ondersteunen organisaties die behoefte
             hebben aan betrouwbare, technisch sterke tekeningen die direct
-            geschikt zijn voor productie en montage. Wat begon als zelfstandig
+            geschikt zijn voor productieen montage. Wat begon als zelfstandig
             tekenwerk is inmiddels uitgegroeid tot een flexibele
             samenwerkingsstructuur waarin wij capaciteit kunnen opschalen
-            wanneer projecten daarom vragen.
+            wanneerprojecten daarom vragen.
           </p>
         </div>
 

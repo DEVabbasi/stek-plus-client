@@ -9,13 +9,13 @@ export function OnzeVisieSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-white px-4 pb-16 pt-4">
+    <section className="relative overflow-hidden bg-white px-4 pb-16 pt-4 sm:px-2 md:px-10 lg:px-24">
       <div className="mx-auto max-w-7xl">
         <h2 className="mt-8 text-center text-[3rem] font-extrabold  leading-[0.98] tracking-[0] text-black md:text-[4rem] lg:text-[80px] lg:leading-[78px]">
           Onze visie
         </h2>
 
-        <div className="mx-auto mt-4 max-w-[44rem] space-y-1 text-center text-[20px] font-normal leading-[26px] tracking-[-0.01em] text-black">
+        <div className="text-sm md:text-base mx-auto mt-4 max-w-2xl space-y-1 pr-4 pl-4 text-center leading-relaxed  text-black">
           <p>
             Wij geloven dat goed tekenwerk de basis vormt van een efficiente
             staalproductie. Fouten in de engineeringfase kosten tijd, geld en
