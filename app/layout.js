@@ -3,6 +3,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Providers } from "@/components/layout/Providers";
+import ScrollToTop from "@/components/home/ScrollToTop";
 const helveticaNowDisplay = localFont({
   src: [
     {
@@ -45,6 +46,7 @@ export default function RootLayout({ children }) {
         <Providers>
           <Header />
           <main>{children}</main>
+          <ScrollToTop />
           <Footer />
         </Providers>
       </body>

@@ -13,10 +13,10 @@ export default function OverHeroSection() {
             Stek+ is gespecialiseerd in het uitwerken van staalconstructies voor
             productiebedrijven. Wij ondersteunen organisaties die behoefte
             hebben aan betrouwbare, technisch sterke tekeningen die direct
-            geschikt zijn voor productieen montage. Wat begon als zelfstandig
+            geschikt zijn voor, Productie en montage. Wat begon als zelfstandig
             tekenwerk is inmiddels uitgegroeid tot een flexibele
             samenwerkingsstructuur waarin wij capaciteit kunnen opschalen
-            wanneerprojecten daarom vragen.
+            wanneer, Project en daarom vragen.
           </p>
         </div>
 
@@ -24,7 +24,7 @@ export default function OverHeroSection() {
         <div className="w-full md:w-[40%] flex flex-col items-end gap-4 md:gap-5 relative">
           {/* Optional Background Image */}
           <Image
-            src="/images/overonHero.png"
+            src="/images/overonsHero.png"
             alt=""
             width={300}
             height={300}

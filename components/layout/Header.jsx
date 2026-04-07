@@ -41,7 +41,7 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white py-3 shadow-sm lg:static lg:shadow-none md:py-4">
+    <header className="sticky top-0 z-40 w-full bg-white py-3 shadow-sm  lg:shadow-none md:py-4">
       <section className="flex items-center justify-between max-w-8xl mx-auto px-4 md:px-6 lg:px-10 ">
         {/* Logo — ONE instance only */}
         <Link href="/" className="flex items-center z-10">

@@ -15,7 +15,7 @@ export default function SamenwerkingSection() {
         {/* Paragraph 1 */}
         <p className="text-sm md:text-base text-black leading-relaxed">
           Wij geloven in langdurige samenwerkingen gebaseerd op vertrouwen en
-          kwaliteit. door korte communicatielijnen en duidelijke afspraken
+          kwaliteit. Door korte communicatielijnen en duidelijke afspraken
           zorgen wij voor continuïteit in uw projecten.
         </p>
 
