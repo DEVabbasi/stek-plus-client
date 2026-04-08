@@ -73,12 +73,27 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="sm:justify-self-start lg:self-start">
+          <div className="sm:justify-self-start lg:self-start space-y-8 sm:col-span-2 lg:col-span-1 ">
             <h3 className="mb-3 text-[18px] font-bold leading-[1.25] text-white lg:mb-4 lg:text-[20px] lg:leading-[1.3]">
               Adres
             </h3>
             <p className="max-w-[16rem] text-[14px] font-medium leading-[1.25] tracking-[-0.01em] text-white md:text-[15px] lg:text-[16px]">
               Bulksestraat 17, 4031JW Ingen
+            </p>{" "}
+            <h3 className="mb-3 text-[18px] font-bold leading-[1.25] text-white lg:mb-4 lg:text-[20px] lg:leading-[1.3]">
+              E-mail
+            </h3>
+            <p
+              mailto="info@stek-plus.nl"
+              className="max-w-[16rem] text-[14px] font-medium leading-[1.25] tracking-[-0.01em] text-white md:text-[15px] lg:text-[16px]"
+            >
+              info@stek-plus.nl
+            </p>{" "}
+            <h3 className="mb-3 text-[18px] font-bold leading-[1.25] text-white lg:mb-4 lg:text-[20px] lg:leading-[1.3]">
+              Telefoon
+            </h3>
+            <p className="max-w-[16rem] text-[14px] font-medium leading-[1.25] tracking-[-0.01em] text-white md:text-[15px] lg:text-[16px]">
+              +31 6 10992534
             </p>
           </div>
 

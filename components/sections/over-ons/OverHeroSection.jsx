@@ -13,10 +13,10 @@ export default function OverHeroSection() {
             Stek+ is gespecialiseerd in het uitwerken van staalconstructies voor
             productiebedrijven. Wij ondersteunen organisaties die behoefte
             hebben aan betrouwbare, technisch sterke tekeningen die direct
-            geschikt zijn voor, Productie en montage. Wat begon als zelfstandig
+            geschikt zijn voor productie en montage. Wat begon als zelfstandig
             tekenwerk is inmiddels uitgegroeid tot een flexibele
             samenwerkingsstructuur waarin wij capaciteit kunnen opschalen
-            wanneer, Project en daarom vragen.
+            wanneer projecten daar om vragen.
           </p>
         </div>
 

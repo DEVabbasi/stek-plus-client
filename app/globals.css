@@ -127,9 +127,7 @@ html {
 .hero-display-primary {
   font-size: clamp(2.9rem, 5vw + 1rem, 5.9rem);
   line-height: 0.98;
-  letter-spacing: -0.02em;
   font-weight: 800;
-  text-wrap: balance;
 }
 
 .hero-display-secondary {

@@ -24,22 +24,22 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1440px] items-center px-5 py-14 sm:px-7 sm:py-16 md:px-10 md:py-20 lg:min-h-[calc(100vh-80px)] lg:px-12 lg:py-24">
-        <div className="w-full max-w-[34rem] space-y-5 text-left text-white sm:space-y-6 lg:ml-6 lg:max-w-[36rem]">
-          <div className="space-y-2 sm:space-y-3 md:space-y-4">
-            <h1 className="hero-title hero-display-primary max-w-[9ch] text-[clamp(3rem,4.4vw+1rem,4.9rem)] leading-[1.2] tracking-[-0.03em] sm:max-w-[9.2ch]">
+        <div className="w-full max-w-[36rem] space-y-5 text-left text-white sm:space-y-6 lg:ml-6 lg:max-w-[40rem]">
+          <div className="space-y-1 sm:space-y-3 md:space-y-4">
+            <h1 className="hero-title hero-display-primary text-[clamp(3rem,4.4vw+1rem,4.9rem)] leading-relaxed sm:max-w-[15ch]">
               Specialisten In Staalconstructie
             </h1>
             <h2 className="hero-subtitle hero-display-secondary max-w-[8ch] text-[clamp(2.8rem,4vw+0.85rem,4.6rem)] leading-[1.03] opacity-95 sm:max-w-[9ch]">
               Tekenwerk
             </h2>
           </div>
-          <p className="hero-body mx-0 max-w-[29rem] pt-1 text-sm leading-[1.8] text-white/92 sm:text-[15px] md:text-base lg:text-[1.05rem]">
+          <p className="hero-body mx-0 max-w-116 pt-1 text-sm leading-[1.8] text-white/92 sm:text-[15px] md:text-base lg:text-md">
             Wij ondersteunen staalproductiebedrijven met nauwkeurige,
             productieklare staalconstructietekeningen. Betrouwbaar, flexibel en
             technisch sterk onderbouwd.
           </p>
           <Link href="/#contact">
-            <Button className="hero-cta mt-5 h-auto w-full rounded-none bg-white px-6 py-5 text-[12px] font-semibold text-[#1072B7] shadow-none hover:bg-gray-100 sm:w-auto sm:min-w-[17rem] sm:px-7 sm:py-5 sm:text-[13px]">
+            <Button className="hero-cta mt-5 h-auto w-full rounded-none bg-white px-6 py-5 text-[16px] font-bold text-[#1072B7] shadow-none hover:bg-gray-100 sm:w-auto sm:min-w-68 sm:px-7 sm:py-5 sm:text-[17px] md:px-8 md:py-6 md:text-[18px] lg:px-9 lg:py-7 lg:text-[19px]  lg:leading-relaxed">
               Neem contact met ons op of vraag een offerte aan
             </Button>
           </Link>
