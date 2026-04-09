@@ -1,34 +1,118 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Card } from "@/components/ui/card";
 import { Container } from "@/components/layout/Container";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 const services = [
   {
     id: 1,
-    title: "3d modelleren van staalconstructies",
+    initial: "01",
+    title: "Aanvraag & offerte",
   },
   {
     id: 2,
-    title: "Werkplaats-tekeningen",
+    initial: "02",
+    title: "Tekeningen & berekeningen bestuderen",
   },
   {
     id: 3,
-    title: "Montage- en overzichts tekeningen",
+    initial: "03",
+    title: "3D modelleren in Tekla Structures",
   },
   {
     id: 4,
-    title: "Nc, dwg, dxf & step files",
+    initial: "04",
+    title: "Overzichtstekeningen maken",
   },
   {
     id: 5,
-    title: "Revisiewerk en optimalisatie",
+    initial: "05",
+    title: "Controle & revisie",
   },
   {
     id: 6,
-    title: "Capiciteits ondersteuning bij piek-belasting",
+    initial: "06",
+    title: "Werkplaats- en montagetekeningen",
+  },
+  {
+    id: 7,
+    initial: "07",
+    title: "NC/DXF/STP bestanden exporteren",
+  },
+  {
+    id: 8,
+    initial: "08",
+    title: "Gestructureerd aanleveren aan klant",
   },
 ];
+
+function ServiceCard({ service, mobile = false }) {
+  const hoverClasses = mobile
+    ? ""
+    : "md:hover:-translate-y-1 md:hover:border-transparent md:hover:bg-[linear-gradient(271.53deg,#88C8F7_5.9%,#1072B7_77.5%)] md:hover:shadow-[0_18px_40px_rgba(16,114,183,0.24)]";
+
+  return (
+    <Link href="/tekenwerk" className="block h-full">
+      <Card
+        className={cn(
+          "group h-[11.25rem] rounded-none border border-[#eceae7] bg-[#f8f7f5] px-6 pt-4 pb-5 shadow-none transition-all duration-300",
+          "sm:h-[10.6rem] sm:px-6 sm:pt-4 sm:pb-5 lg:h-[11.2rem] lg:px-6 lg:pt-4 lg:pb-5",
+          hoverClasses,
+        )}
+      >
+        <div className="flex h-full flex-col">
+          <div className="flex items-start justify-between">
+            <span
+              className={cn(
+                "font-sans text-[1.25rem] leading-none font-bold tracking-[-0.03em] text-[#d3d3d3]",
+                "sm:text-[2.1rem] lg:text-[2.1rem]",
+                !mobile &&
+                  "md:transition-colors md:duration-300 md:group-hover:text-white",
+              )}
+            >
+              {service.initial}
+            </span>
+
+            <Image
+              src="/icons/CustomArrowBlack.svg"
+              alt=""
+              width={16}
+              height={16}
+              aria-hidden="true"
+              className={cn(
+                "mt-0.5 h-3.5 w-3.5 shrink-0 object-contain",
+                "sm:h-4 sm:w-4",
+                !mobile &&
+                  "md:transition-all md:duration-300 md:group-hover:translate-x-0.5 md:group-hover:-translate-y-0.5 md:group-hover:[filter:brightness(0)_invert(1)]",
+              )}
+            />
+          </div>
+
+          <div className="mt-auto pr-3">
+            <h3
+              className={cn(
+                "var(--font-helvetica-now) text-[24px] leading-6 font-bold tracking-[-0.03em] text-black",
+                "max-w-[14ch] text-balance ",
+                !mobile &&
+                  "md:transition-colors md:duration-300 md:group-hover:text-white",
+              )}
+            >
+              {service.title}
+            </h3>
+          </div>
+        </div>
+      </Card>
+    </Link>
+  );
+}
 
 export function ServicesSection() {
   return (
@@ -36,36 +120,33 @@ export function ServicesSection() {
       <Container className="relative z-10">
         <div className="mb-10 text-center md:mb-12 lg:mb-16">
           <h2 className="text-5xl font-black leading-[0.95] text-black sm:text-6xl md:text-7xl lg:text-[80px]">
-            Onze diensten
+            Van aanvraag tot oplevering
           </h2>
         </div>
 
-        <div className="mx-auto grid max-w-[1140px] grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-5">
+        <div className="sm:hidden">
+          <Carousel
+            opts={{ align: "start", loop: false }}
+            className="mx-auto w-full max-w-[22rem]"
+            aria-label="Services carousel"
+          >
+            <CarouselContent className="-ml-3">
+              {services.map((service) => (
+                <CarouselItem key={service.id} className="basis-[86%] pl-3">
+                  <ServiceCard service={service} mobile />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="mt-5 flex items-center justify-center gap-3">
+              <CarouselPrevious className="static translate-y-0 rounded-none border border-[#e5e5e5] bg-white text-black shadow-none hover:bg-white" />
+              <CarouselNext className="static translate-y-0 rounded-none border border-[#e5e5e5] bg-white text-black shadow-none hover:bg-white" />
+            </div>
+          </Carousel>
+        </div>
+
+        <div className="mx-auto hidden max-w-[1140px] grid-cols-2 gap-4 sm:grid lg:grid-cols-4 lg:gap-[14px]">
           {services.map((service) => (
-            <Link href="/tekenwerk" key={service.id} className="block">
-              <Card
-                className="group flex min-h-[14rem] flex-col justify-between rounded-none border border-[#e8e8e8] bg-[#f5f4f2] p-6 shadow-[0_12px_32px_rgba(17,17,17,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:bg-[linear-gradient(271.53deg,#88C8F7_5.9%,#1072B7_77.5%)] hover:shadow-[0_18px_40px_rgba(16,114,183,0.24)] sm:min-h-[15rem] sm:p-7 lg:min-h-[15.25rem] lg:p-7"
-              >
-                <div className="space-y-5">
-                  <div className="text-[11px] font-light uppercase leading-none tracking-[0.38em] text-black/70 transition-colors duration-300 group-hover:text-white/85 sm:text-[12px]">
-                    STEK+
-                  </div>
-                  <h3 className="max-w-[14ch] text-[24px] font-bold leading-[1.08] tracking-[-0.03em] text-black transition-colors duration-300 group-hover:text-white sm:max-w-[13ch] sm:text-[26px] lg:max-w-[14ch] lg:text-[28px]">
-                    {service.title}
-                  </h3>
-                </div>
-                <div className="flex justify-start pt-7 sm:pt-8">
-                  <Image
-                    src="/icons/CustomArrowBlack.svg"
-                    alt="Arrow Icon"
-                    width={26}
-                    height={26}
-                    className="h-[22px] w-[22px] transition-all duration-300 group-hover:translate-x-1 group-hover:[filter:brightness(0)_invert(1)] sm:h-[24px] sm:w-[24px]"
-                    loading="lazy"
-                  />
-                </div>
-              </Card>
-            </Link>
+            <ServiceCard key={service.id} service={service} />
           ))}
         </div>
       </Container>
