@@ -10,7 +10,10 @@
 html {
   translate: no;
 }
-
+header {
+  padding-top: env(safe-area-inset-top);
+  padding-top: constant(safe-area-inset-top);
+}
 :root {
   /* Primary Brand Gradient */
   --bg-brand: linear-gradient(271.53deg, #88c8f7 5.9%, #1072b7 77.5%);
@@ -76,6 +79,11 @@ html {
 /* =========================
    REUSABLE UTILITIES
 ========================= */
+
+header {
+  padding-top: constant(safe-area-inset-top); /* older iOS */
+  padding-top: env(safe-area-inset-top);
+}
 
 .bg-brand {
   background: var(--bg-brand);

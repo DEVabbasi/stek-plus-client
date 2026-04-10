@@ -41,17 +41,17 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white py-3 shadow-sm  lg:shadow-none md:py-4">
-      <section className="flex items-center justify-between max-w-8xl mx-auto px-4 md:px-6 lg:px-10 ">
+    <header className="sticky top-0 z-40 w-full bg-white/95  pb-3 pt-[env(safe-area-inset-top)] md:pb-4 shadow-sm backdrop-blur-md  lg:shadow-none ">
+      <section className="flex items-center justify-between max-w-8xl mx-auto px-4 md:px-6 lg:px-10 py-3 md:py-4 ">
         {/* Logo — ONE instance only */}
         <Link href="/" className="flex items-center z-10">
           <Image
             src="/icons/headerLogo1.svg"
             alt="STEK+ Logo"
-            width={260}
-            height={66}
+            width={200}
+            height={60}
+            className="h-10 w-auto md:h-12"
             priority
-            unoptimized
           />
         </Link>
 
