@@ -39,7 +39,7 @@ export function HeroSection() {
             technisch sterk onderbouwd.
           </p>
           <Link href="/#contact">
-            <Button className="hero-cta mt-5 h-auto w-full rounded-none bg-white px-6 py-5 text-[16px] font-bold text-[#1072B7] shadow-none hover:bg-gray-100 sm:w-auto sm:min-w-68 sm:px-7 sm:py-5 sm:text-[17px] md:px-8 md:py-6 md:text-[18px] lg:px-9 lg:py-7 lg:text-[19px]  lg:leading-relaxed">
+            <Button className="hero-cta mt-5 h-auto w-full rounded-none bg-white px-6 py-5 text-[14px] font-bold text-[#1072B7] shadow-none hover:bg-gray-100 sm:w-auto sm:min-w-60 sm:px-7 sm:py-5 sm:text-[14px] md:px-8 md:py-6 md:text-[16px] lg:px-9 lg:py-7 lg:text-[19px]  lg:leading-relaxed">
               Neem contact met ons op of vraag een offerte aan
             </Button>
           </Link>
