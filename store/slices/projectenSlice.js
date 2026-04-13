@@ -1,15 +1,6 @@
+// src/store/slices/projectenSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import projectenService from "@/lib/api/services/projectenService";
-
-/**
- * @typedef {Object} ProjectenState
- * @property {Array} items - List of all drawings.
- * @property {Array} categories - List of available categories.
- * @property {string|null} activeCategory - Currently selected category ID.
- * @property {Object|null} currentProject - Currently viewed project detail.
- * @property {Object} loading - Loading states for different sections.
- * @property {Object} error - Error states for different sections.
- */
 
 const initialState = {
   items: [],
@@ -27,8 +18,6 @@ const initialState = {
     detail: null,
   },
 };
-
-// --- Async Thunks ---
 
 export const fetchCategories = createAsyncThunk(
   "projecten/fetchCategories",
@@ -63,6 +52,18 @@ export const fetchDrawingById = createAsyncThunk(
   }
 );
 
+// NEW: fetch by slug (preferred — keeps URLs clean)
+export const fetchDrawingBySlug = createAsyncThunk(
+  "projecten/fetchDrawingBySlug",
+  async (slug, { rejectWithValue }) => {
+    try {
+      return await projectenService.getBySlug(slug);
+    } catch (err) {
+      return rejectWithValue(err.response?.data?.message || "Ophalen van projectdetails mislukt");
+    }
+  }
+);
+
 const projectenSlice = createSlice({
   name: "projecten",
   initialState,
@@ -77,7 +78,6 @@ const projectenSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // Categories
       .addCase(fetchCategories.pending, (state) => {
         state.loading.categories = true;
         state.error.categories = null;
@@ -85,7 +85,6 @@ const projectenSlice = createSlice({
       .addCase(fetchCategories.fulfilled, (state, action) => {
         state.loading.categories = false;
         state.categories = action.payload;
-        // Auto-select first category if none active
         if (!state.activeCategory && action.payload.length > 0) {
           state.activeCategory = action.payload[0].id;
         }
@@ -95,7 +94,6 @@ const projectenSlice = createSlice({
         state.error.categories = action.payload;
       })
 
-      // All Drawings
       .addCase(fetchAllDrawings.pending, (state) => {
         state.loading.items = true;
         state.error.items = null;
@@ -109,7 +107,7 @@ const projectenSlice = createSlice({
         state.error.items = action.payload;
       })
 
-      // Single Drawing Detail
+      // fetchDrawingById (kept for backwards compat)
       .addCase(fetchDrawingById.pending, (state) => {
         state.loading.detail = true;
         state.error.detail = null;
@@ -122,13 +120,27 @@ const projectenSlice = createSlice({
       .addCase(fetchDrawingById.rejected, (state, action) => {
         state.loading.detail = false;
         state.error.detail = action.payload;
+      })
+
+      // fetchDrawingBySlug (new — used by slug-based pages)
+      .addCase(fetchDrawingBySlug.pending, (state) => {
+        state.loading.detail = true;
+        state.error.detail = null;
+        state.currentProject = null;
+      })
+      .addCase(fetchDrawingBySlug.fulfilled, (state, action) => {
+        state.loading.detail = false;
+        state.currentProject = action.payload;
+      })
+      .addCase(fetchDrawingBySlug.rejected, (state, action) => {
+        state.loading.detail = false;
+        state.error.detail = action.payload;
       });
   },
 });
 
 export const { setActiveCategory, clearCurrentProject } = projectenSlice.actions;
 
-// --- Selectors ---
 export const selectProjectenState = (state) => state.projecten;
 export const selectFilteredProjects = (state) => {
   const { items, activeCategory } = state.projecten;

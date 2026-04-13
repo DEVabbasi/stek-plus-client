@@ -71,7 +71,7 @@ export function ProjectCard({ project }) {
         </p>
 
         <div className="mt-3">
-          <Link href={`/projecten/${project.id}`}>
+          <Link href={`/projecten/${project.slug}`}>
             <BrandButton size="sm">Details bekijken</BrandButton>
           </Link>
         </div>
