@@ -33,7 +33,6 @@ export function ContactSection({ preselectedDienst, title, subtitle }) {
     },
   });
 
-  // Reset form on success
   useEffect(() => {
     if (status === "succeeded") {
       reset();
@@ -49,44 +48,50 @@ export function ContactSection({ preselectedDienst, title, subtitle }) {
   };
 
   return (
-    <section id="contact" className="relative overflow-visible w-full bg-white pt-24 pb-20 px-4">
-      {/* Decorators */}
-      <div className="absolute -top-16 left-0 w-32 h-32 md:w-44 md:h-44 z-20 pointer-events-none">
-        <Image src="/icons/vectorDesign1.svg" alt="" width={176} height={176} className="object-contain" />
-      </div>
-      <div className="absolute bottom-0 right-0 w-40 h-40 md:w-64 md:h-64 z-0 pointer-events-none">
-        <Image src="/icons/vectorDesign2.svg" alt="" width={256} height={256} className="object-contain" />
-      </div>
-
-      <div className="max-w-2xl mx-auto relative z-10">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-[#111] leading-tight">
+    <section
+      id="contact"
+      className="relative w-full overflow-visible bg-white px-4 pb-20 pt-20 md:pt-24"
+    >
+      <div className="relative z-10 mx-auto max-w-[1080px]">
+        <h2 className="text-center text-[2.7rem] font-extrabold leading-[0.96] tracking-[-0.04em] text-[#111] md:text-[4rem] lg:text-[4.45rem] lg:whitespace-nowrap">
           {title || "Neem contact met ons op"}
         </h2>
-        <div className="mt-4">
-          <p className="text-sm md:text-base font-bold text-center text-[#111] uppercase tracking-wider">
-            Capaciteit nodig? Wij denken graag mee.
+
+        <div className="mx-auto mt-2.5 max-w-[760px]">
+          <p className="text-center text-[15px] font-bold leading-[1.15] text-[#111] md:text-[16px]">
+            Capaciteit nodig? wij denken graag mee.
           </p>
-          <p className="text-xs md:text-sm text-center text-gray-500 mt-2 max-w-lg mx-auto leading-relaxed">
-            Heeft u tijdelijke onderbezetting of zoekt u structurele ondersteuning in tekenwerk? Neem vrijblijvend contact met ons op om de mogelijkheden te bespreken.
+          <p className="mx-auto mt-1 max-w-[760px] text-center text-[13px] leading-[1.35] text-[#111] md:text-[14px]">
+            {subtitle ||
+              "Heeft u tijdelijke onderbezetting of zoekt u structurele ondersteuning in tekenwerk? Neem vrijblijvend contact met ons op om de mogelijkheden te bespreken."}
           </p>
         </div>
 
         {status === "succeeded" ? (
-          <div className="mt-8 p-6 bg-green-50 border border-green-100 rounded-lg text-center animate-in fade-in zoom-in duration-300">
-            <p className="text-green-800 font-bold text-lg">Bedankt! Uw aanvraag is verzonden.</p>
-            <p className="text-green-600 text-sm mt-1">Wij nemen zo spoedig mogelijk contact met u op.</p>
+          <div className="mt-8 rounded-lg border border-green-100 bg-green-50 p-6 text-center animate-in fade-in zoom-in duration-300">
+            <p className="text-lg font-bold text-green-800">
+              Bedankt! Uw aanvraag is verzonden.
+            </p>
+            <p className="mt-1 text-sm text-green-600">
+              Wij nemen zo spoedig mogelijk contact met u op.
+            </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-6">
-            <ContactFormBody 
-              register={register} 
-              errors={errors} 
-              setValue={setValue} 
-              watch={watch} 
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="mx-auto mt-6 max-w-[790px] space-y-3 md:mt-8"
+          >
+            <ContactFormBody
+              register={register}
+              errors={errors}
+              setValue={setValue}
+              watch={watch}
             />
 
             {error && (
-              <p className="text-red-500 text-sm text-center bg-red-50 p-3 rounded">{error}</p>
+              <p className="rounded bg-red-50 p-3 text-center text-sm text-red-500">
+                {error}
+              </p>
             )}
 
             <BrandButton
@@ -94,10 +99,16 @@ export function ContactSection({ preselectedDienst, title, subtitle }) {
               size="md"
               fullWidth
               disabled={status === "loading"}
-              className="w-full h-12 uppercase rounded-none flex items-center justify-center gap-2"
+              className="flex h-[52px] w-full items-center justify-center gap-2 rounded-none text-[13px] font-normal uppercase tracking-[-0.01em] md:text-[14px]"
             >
-               {status === "loading" ? "VERZENDEN..." : "VERSTUREN"}
-               <Image src="/icons/CustomArrowBlack.svg" alt="" width={16} height={16} className="brightness-0 invert" />
+              {status === "loading" ? "VERZENDEN..." : "VERSTUREN"}
+              <Image
+                src="/icons/CustomArrowBlack.svg"
+                alt=""
+                width={14}
+                height={14}
+                className="h-[14px] w-[14px] brightness-0 invert"
+              />
             </BrandButton>
           </form>
         )}

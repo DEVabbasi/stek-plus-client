@@ -1,13 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Container } from "./Container";
 import { useContactScroll } from "@/hooks/useContactScroll";
 
 function isNavActive(href, pathname) {
@@ -26,18 +25,32 @@ const navItems = [
 export function Header() {
   const pathname = usePathname();
   const { scrollToContact } = useContactScroll();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
+  const handleMobileNavClick = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  const handleMobileContactClick = (event) => {
+    scrollToContact(event);
+    setIsMobileMenuOpen(false);
+  };
 
   return (
-    <header className="w-full bg-[#f5f7fa] py-3 md:py-4">
-      <section className="flex items-center justify-between max-w-8xl mx-auto px-4 md:px-6 lg:px-10">
+    <header className="sticky top-0 z-40 w-full bg-white/95  pb-3 pt-[env(safe-area-inset-top)] md:pb-4 shadow-sm backdrop-blur-md  lg:shadow-none ">
+      <section className="flex items-center justify-between max-w-8xl mx-auto px-4 md:px-6 lg:px-10 py-3 md:py-4 ">
         {/* Logo — ONE instance only */}
         <Link href="/" className="flex items-center z-10">
           <Image
             src="/icons/headerLogo1.svg"
             alt="STEK+ Logo"
-            width={120}
-            height={40}
-            className="h-12 md:h-16 w-auto"
+            width={200}
+            height={60}
+            className="h-10 w-auto md:h-12"
             priority
           />
         </Link>
@@ -54,7 +67,7 @@ export function Header() {
                   className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
                     active
                       ? "bg-brand text-white"
-                      : "text-gray-700 hover:text-[#1072B7]"
+                      : "text-black hover:text-[#1072B7]"
                   }`}
                 >
                   {item.name}
@@ -65,7 +78,7 @@ export function Header() {
             <Link
               href="/#contact"
               onClick={scrollToContact}
-              className="px-5 py-2 rounded-full text-sm font-medium transition-all text-gray-700 hover:text-[#1072B7]"
+              className="px-5 py-2 rounded-full text-sm font-medium transition-all text-black hover:text-[#1072B7]"
             >
               Contact
             </Link>
@@ -73,8 +86,8 @@ export function Header() {
         </div>
 
         {/* Mobile Menu */}
-        <div className="lg:hidden flex items-center gap-3">
-          <Sheet>
+        <div className="flex items-center gap-3 lg:hidden">
+          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="h-10 w-10">
                 <Menu className="h-6 w-6" />
@@ -89,6 +102,7 @@ export function Header() {
                       <Link
                         key={item.name}
                         href={item.href}
+                        onClick={handleMobileNavClick}
                         className={`px-4 py-3 rounded-lg text-base font-medium transition-all ${
                           active
                             ? "bg-brand text-white"
@@ -101,19 +115,19 @@ export function Header() {
                   })}
                   <Link
                     href="/#contact"
-                    onClick={scrollToContact}
+                    onClick={handleMobileContactClick}
                     className="px-4 py-3 rounded-lg text-base font-medium transition-all text-gray-700 hover:bg-gray-100"
                   >
                     Contact
                   </Link>
                 </nav>
-                <div className="pb-6 pt-4 border-t">
+                <div className="pl-2 pb-6 pt-4 border-t">
                   <Link
                     href="/#contact"
-                    onClick={scrollToContact}
+                    onClick={handleMobileContactClick}
                     className="block w-full"
                   >
-                    <Button className="w-full bg-brand text-white hover:opacity-90 py-6 text-base font-semibold rounded-xl">
+                    <Button className="w-full bg-brand text-white hover:opacity-90 py-6 text-base font-semibold ">
                       Ontvang Een offerte
                     </Button>
                   </Link>

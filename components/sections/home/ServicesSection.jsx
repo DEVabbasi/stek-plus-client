@@ -1,107 +1,152 @@
 import Image from "next/image";
-import { Card } from "@/components/ui/card";
+import Link from "next/link";
 import { Container } from "@/components/layout/Container";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 const services = [
   {
     id: 1,
-    title: "3d modelleren van staalconstructies",
-    active: false,
+    initial: "01",
+    title: "Aanvraag & offerte",
   },
   {
     id: 2,
-    title: "Werkplaats-tekeningen",
-    active: true,
+    initial: "02",
+    title: "Tekeningen & berekeningen bestuderen",
   },
   {
     id: 3,
-    title: "Montage- en overzichts tekeningen",
-    active: false,
+    initial: "03",
+    title: "3D modelleren in Tekla Structures",
   },
   {
     id: 4,
-    title: "Nc, dwg, dxf & step files",
-    active: false,
+    initial: "04",
+    title: "Overzichtstekeningen maken",
   },
   {
     id: 5,
-    title: "Revisiewerk en optimalisatie",
-    active: false,
+    initial: "05",
+    title: "Controle & revisie",
   },
   {
     id: 6,
-    title: "Capiciteits ondersteuning bij piek-belasting",
-    active: false,
+    initial: "06",
+    title: "Werkplaats- en montagetekeningen",
+  },
+  {
+    id: 7,
+    initial: "07",
+    title: "NC/DXF/STP bestanden exporteren",
+  },
+  {
+    id: 8,
+    initial: "08",
+    title: "Gestructureerd aanleveren aan klant",
   },
 ];
 
+function ServiceCard({ service, mobile = false }) {
+  const hoverClasses = mobile
+    ? ""
+    : "md:hover:-translate-y-1 md:hover:border-transparent md:hover:bg-[linear-gradient(271.53deg,#88C8F7_5.9%,#1072B7_77.5%)] md:hover:shadow-[0_18px_40px_rgba(16,114,183,0.24)]";
+
+  return (
+    <Link href="/tekenwerk" className="block h-full">
+      <Card
+        className={cn(
+          "group h-[11.25rem] rounded-none border border-[#eceae7] bg-[#f8f7f5] px-6 pt-4 pb-5 shadow-none transition-all duration-300",
+          "sm:h-[10.6rem] sm:px-6 sm:pt-4 sm:pb-5 lg:h-[11.2rem] lg:px-6 lg:pt-4 lg:pb-5",
+          hoverClasses,
+        )}
+      >
+        <div className="flex h-full flex-col">
+          <div className="flex items-start justify-between">
+            <span
+              className={cn(
+                "font-sans text-[1.25rem] leading-none font-bold tracking-[-0.03em] text-[#d3d3d3]",
+                "sm:text-[2.1rem] lg:text-[2.1rem]",
+                !mobile &&
+                  "md:transition-colors md:duration-300 md:group-hover:text-white",
+              )}
+            >
+              {service.initial}
+            </span>
+
+            <Image
+              src="/icons/CustomArrowBlack.svg"
+              alt=""
+              width={16}
+              height={16}
+              aria-hidden="true"
+              className={cn(
+                "mt-0.5 h-3.5 w-3.5 shrink-0 object-contain",
+                "sm:h-4 sm:w-4",
+                !mobile &&
+                  "md:transition-all md:duration-300 md:group-hover:translate-x-0.5 md:group-hover:-translate-y-0.5 md:group-hover:[filter:brightness(0)_invert(1)]",
+              )}
+            />
+          </div>
+
+          <div className="mt-auto pr-3">
+            <h3
+              className={cn(
+                "var(--font-helvetica-now) text-[24px] leading-6 font-bold tracking-[-0.03em] text-black",
+                "max-w-[14ch] text-balance ",
+                !mobile &&
+                  "md:transition-colors md:duration-300 md:group-hover:text-white",
+              )}
+            >
+              {service.title}
+            </h3>
+          </div>
+        </div>
+      </Card>
+    </Link>
+  );
+}
+
 export function ServicesSection() {
   return (
-    <section className="section-padding bg-[#f5f7fa] relative overflow-hidden">
-      {/* Vector Images */}
-      <div className="absolute top-4 left-4 md:top-8 md:left-8 z-0 opacity-40">
-        <Image
-          src="/icons/vectorDesign2.svg"
-          alt=""
-          width={100}
-          height={100}
-          className="w-16 h-16 md:w-20 md:h-20 lg:w-28 lg:h-28"
-          loading="lazy"
-        />
-      </div>
-      <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 z-0 opacity-40">
-        <Image
-          src="/icons/vectorDesign2.svg"
-          alt=""
-          width={100}
-          height={100}
-          className="w-16 h-16 md:w-20 md:h-20 lg:w-28 lg:h-28"
-          loading="lazy"
-        />
-      </div>
-
+    <section className="relative overflow-hidden bg-white px-4 py-16 md:py-24 lg:py-28">
       <Container className="relative z-10">
-        <div className="text-center mb-10 md:mb-12 lg:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
-            Onze diensten
+        <div className="mb-10 text-center md:mb-12 lg:mb-16">
+          <h2 className="text-5xl font-black leading-[0.95] text-black sm:text-6xl md:text-7xl lg:text-[80px]">
+            Van aanvraag tot oplevering
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+        <div className="sm:hidden">
+          <Carousel
+            opts={{ align: "start", loop: false }}
+            className="mx-auto w-full max-w-[22rem]"
+            aria-label="Services carousel"
+          >
+            <CarouselContent className="-ml-3">
+              {services.map((service) => (
+                <CarouselItem key={service.id} className="basis-[86%] pl-3">
+                  <ServiceCard service={service} mobile />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="mt-5 flex items-center justify-center gap-3">
+              <CarouselPrevious className="static translate-y-0 rounded-none border border-[#e5e5e5] bg-white text-black shadow-none hover:bg-white" />
+              <CarouselNext className="static translate-y-0 rounded-none border border-[#e5e5e5] bg-white text-black shadow-none hover:bg-white" />
+            </div>
+          </Carousel>
+        </div>
+
+        <div className="mx-auto hidden max-w-[1140px] grid-cols-2 gap-4 sm:grid lg:grid-cols-4 lg:gap-[14px]">
           {services.map((service) => (
-            <Card
-              key={service.id}
-              className={`p-6 sm:p-8 md:p-10 relative group cursor-pointer transition-all rounded-2xl shadow-md hover:shadow-xl ${
-                service.active
-                  ? "bg-brand text-white"
-                  : "bg-white text-gray-900 hover:bg-gradient-to-br hover:from-[#88c8f7] hover:to-[#1072b7] hover:text-white"
-              }`}
-            >
-              <div className="space-y-3 sm:space-y-4 md:space-y-6">
-                <div className="text-xs sm:text-sm font-medium tracking-wider opacity-70">
-                  STEK+
-                </div>
-                <h3 className="text-base sm:text-lg md:text-xl font-semibold leading-tight min-h-[3rem]">
-                  {service.title}
-                </h3>
-                <div className="flex justify-start pt-2">
-                  <div className="w-8 h-8 flex items-center justify-center">
-                    <Image
-                      src={
-                        service.active
-                          ? "/icons/CustomArrowWhite.svg"
-                          : "/icons/CustomArrowBlack.svg"
-                      }
-                      alt="Arrow Icon"
-                      width={16}
-                      height={16}
-                      className="transform transition-transform duration-300 group-hover:translate-x-1"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-              </div>
-            </Card>
+            <ServiceCard key={service.id} service={service} />
           ))}
         </div>
       </Container>

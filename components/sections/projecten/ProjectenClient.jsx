@@ -2,12 +2,12 @@
 
 import { useEffect, useCallback, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { 
-  fetchCategories, 
-  fetchAllDrawings, 
-  setActiveCategory, 
+import {
+  fetchCategories,
+  fetchAllDrawings,
+  setActiveCategory,
   selectProjectenState,
-  selectFilteredProjects 
+  selectFilteredProjects,
 } from "@/store/slices/projectenSlice";
 import { ProjectCard } from "./ProjectCard";
 import { ProjectCardSkeleton } from "./ProjectCardSkeleton";
@@ -15,7 +15,8 @@ import { cn } from "@/lib/utils";
 
 export default function ProjectenClient() {
   const dispatch = useDispatch();
-  const { categories, activeCategory, loading, error } = useSelector(selectProjectenState);
+  const { categories, activeCategory, loading, error } =
+    useSelector(selectProjectenState);
   const filteredProjects = useSelector(selectFilteredProjects);
 
   // Initial data fetch
@@ -25,9 +26,12 @@ export default function ProjectenClient() {
   }, [dispatch]);
 
   // Performance optimized tab switcher
-  const handleTabChange = useCallback((id) => {
-    dispatch(setActiveCategory(id));
-  }, [dispatch]);
+  const handleTabChange = useCallback(
+    (id) => {
+      dispatch(setActiveCategory(id));
+    },
+    [dispatch],
+  );
 
   // Memoized content rendering
   const content = useMemo(() => {
@@ -44,8 +48,10 @@ export default function ProjectenClient() {
     if (error.items || error.categories) {
       return (
         <div className="text-center py-16">
-          <p className="text-red-500 font-medium">Oeps! Er ging iets mis bij het laden van de projecten.</p>
-          <button 
+          <p className="text-red-500 font-medium">
+            Oeps! Er ging iets mis bij het laden van de projecten.
+          </p>
+          <button
             onClick={() => {
               dispatch(fetchCategories());
               dispatch(fetchAllDrawings());
@@ -81,42 +87,41 @@ export default function ProjectenClient() {
       <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-black">
         Onze projecten
       </h1>
-      <p className="text-center text-gray-500 text-sm md:text-base mt-3 max-w-lg mx-auto">
+      <p className="text-center text-black text-sm md:text-base mt-3 max-w-lg mx-auto">
         Bekijk ons portfolio met technische tekeningen en 3d-modellen.
       </p>
 
       {/* Tabs */}
-      <div className="flex justify-center mt-8 overflow-x-auto pb-1">
-        <div className="flex bg-gray-100 rounded-full p-1 gap-1 flex-nowrap min-h-[44px]">
-          {categories.length > 0 ? (
-            categories.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => handleTabChange(tab.id)}
-                className={cn(
-                  "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap",
-                  "focus:outline-none focus:ring-2 focus:ring-[#1072B7] focus:ring-offset-1",
-                  activeCategory === tab.id
-                    ? "bg-white text-gray-900 font-semibold shadow-sm"
-                    : "text-gray-500 hover:text-gray-700"
-                )}
-              >
-                {tab.label}
-              </button>
-            ))
-          ) : (
-            // Placeholder tabs while loading
-            [...Array(4)].map((_, i) => (
-              <div key={i} className="w-24 h-8 bg-gray-200 rounded-full animate-pulse" />
-            ))
-          )}
+      <div className="mt-8 -mx-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:px-0">
+        <div className="mx-auto flex min-w-max flex-nowrap gap-1 rounded-full bg-gray-100 p-1 min-h-11 sm:w-fit">
+          {categories.length > 0
+            ? categories.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => handleTabChange(tab.id)}
+                  className={cn(
+                    "shrink-0 rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-all duration-200",
+                    "focus:outline-none focus:ring-2 focus:ring-[#1072B7] focus:ring-offset-1",
+                    activeCategory === tab.id
+                      ? "bg-white text-gray-900 font-semibold shadow-sm"
+                      : "text-gray-500 hover:text-gray-700",
+                  )}
+                >
+                  {tab.label}
+                </button>
+              ))
+            : // Placeholder tabs while loading
+              [...Array(4)].map((_, i) => (
+                <div
+                  key={i}
+                  className="h-8 w-24 shrink-0 animate-pulse rounded-full bg-gray-200"
+                />
+              ))}
         </div>
       </div>
 
       {/* Main Content Area */}
-      <div className="mt-8">
-        {content}
-      </div>
+      <div className="mt-8">{content}</div>
     </div>
   );
 }

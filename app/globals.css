@@ -7,7 +7,13 @@
 /* =========================
    DESIGN SYSTEM VARIABLES
 ========================= */
-
+html {
+  translate: no;
+}
+header {
+  padding-top: env(safe-area-inset-top);
+  padding-top: constant(safe-area-inset-top);
+}
 :root {
   /* Primary Brand Gradient */
   --bg-brand: linear-gradient(271.53deg, #88c8f7 5.9%, #1072b7 77.5%);
@@ -74,6 +80,11 @@
    REUSABLE UTILITIES
 ========================= */
 
+header {
+  padding-top: constant(safe-area-inset-top); /* older iOS */
+  padding-top: env(safe-area-inset-top);
+}
+
 .bg-brand {
   background: var(--bg-brand);
   background-color: var(--bg-brand);
@@ -92,7 +103,7 @@
 }
 
 .container-custom {
-  @apply max-w-7xl mx-auto px-4 md:px-10;
+  @apply max-w-7xl mx-auto px-2 md:px-10;
 }
 
 .card-service {
@@ -121,6 +132,31 @@
   opacity: 0.95;
 }
 
+.hero-display-primary {
+  font-size: clamp(2.9rem, 5vw + 1rem, 5.9rem);
+  line-height: 0.98;
+  font-weight: 800;
+}
+
+.hero-display-secondary {
+  font-family:
+    var(--font-helvetica-now), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(2.6rem, 5.2vw + 0.65rem, 6.25rem);
+  line-height: 1.07;
+  letter-spacing: 0;
+  font-weight: 300;
+  font-style: italic;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  text-wrap: balance;
+}
+
+.hero-image-frame {
+  width: min(100%, 44rem);
+  aspect-ratio: 1 / 1;
+}
+
 /* Responsive Typography */
 @media (max-width: 768px) {
   .section-padding {
@@ -131,12 +167,13 @@
 /* Hero fine-tuning for smaller laptops */
 @media (max-width: 1280px) and (min-width: 1024px) {
   .hero-section .hero-title {
-    font-size: 3.5rem;
-    line-height: 1.05;
+    font-size: 4.4rem;
+    line-height: 0.98;
   }
 
   .hero-section .hero-subtitle {
-    font-size: 2.5rem;
+    font-size: 4.75rem;
+    line-height: 1.07;
   }
 
   .hero-section .hero-image {
@@ -149,12 +186,40 @@
     min-height: auto;
   }
 
+  .hero-section .hero-title {
+    font-size: 3.85rem;
+  }
+
+  .hero-section .hero-subtitle {
+    font-size: 3.6rem;
+    line-height: 1.07;
+  }
+
   .hero-section .hero-cta {
     width: 100%;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-section .hero-title {
+    font-size: 2.9rem;
+    line-height: 0.98;
+  }
+
+  .hero-section .hero-subtitle {
+    font-size: 2.6rem;
+    line-height: 1.07;
+  }
+
+  .hero-image-frame {
+    width: min(100%, 26rem);
   }
 }
 
 @theme inline {
+  --font-sans:
+    var(--font-helvetica-now), "Helvetica Neue", Helvetica, Arial, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -235,6 +300,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-helvetica-now), "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family:
+      var(--font-helvetica-now), "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 }

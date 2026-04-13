@@ -142,10 +142,30 @@ const projectenSlice = createSlice({
 export const { setActiveCategory, clearCurrentProject } = projectenSlice.actions;
 
 export const selectProjectenState = (state) => state.projecten;
+const sortProjectsForDisplay = (projects) =>
+  [...projects].sort((a, b) => {
+    if (Boolean(a.isFeatured) !== Boolean(b.isFeatured)) {
+      return a.isFeatured ? -1 : 1;
+    }
+
+    const aFeaturedAt = a.featuredAt ? new Date(a.featuredAt).getTime() : 0;
+    const bFeaturedAt = b.featuredAt ? new Date(b.featuredAt).getTime() : 0;
+    if (aFeaturedAt !== bFeaturedAt) {
+      return bFeaturedAt - aFeaturedAt;
+    }
+
+    const aCreatedAt = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+    const bCreatedAt = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+    return bCreatedAt - aCreatedAt;
+  });
+
 export const selectFilteredProjects = (state) => {
   const { items, activeCategory } = state.projecten;
-  if (!activeCategory) return items;
-  return items.filter((p) => p.category === activeCategory);
+  const filtered = !activeCategory
+    ? items
+    : items.filter((p) => p.category === activeCategory);
+
+  return sortProjectsForDisplay(filtered);
 };
 
 export default projectenSlice.reducer;
