@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -26,10 +26,22 @@ export function Header() {
   const pathname = usePathname();
   const { scrollToContact } = useContactScroll();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const isHome = pathname === "/";
+
+  const handleScroll = useCallback(() => {
+    setScrolled(window.scrollY > 40);
+  }, []);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
 
   const handleMobileNavClick = () => {
     setIsMobileMenuOpen(false);
@@ -39,24 +51,33 @@ export function Header() {
     scrollToContact(event);
     setIsMobileMenuOpen(false);
   };
+  const transparent = isHome && !scrolled;
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white/95  pb-3 pt-[env(safe-area-inset-top)] md:pb-4 shadow-sm backdrop-blur-md  lg:shadow-none ">
-      <section className="flex items-center justify-between max-w-8xl mx-auto px-4 md:px-6 lg:px-10 py-3 md:py-4 ">
+    <header
+      className={`sticky top-0 z-40 w-full pt-[env(safe-area-inset-top)] pt-[constant(safe-area-inset-top)] transition-all duration-300 ${
+        transparent
+          ? "bg-transparent shadow-none"
+          : "bg-white/95 backdrop-blur-md shadow-sm"
+      }`}
+    >
+      <section className="flex items-center justify-between max-w-8xl mx-auto px-4 md:px-6 lg:px-10 py-4 md:py-5 lg:py-6">
         {/* Logo — ONE instance only */}
         <Link href="/" className="flex items-center z-10">
           <Image
-            src="/icons/headerLogo1.svg"
+            src={transparent ? "/icons/footerLogo.svg" : "/icons/headerLogo1.svg"}
             alt="STEK+ Logo"
-            width={200}
-            height={60}
-            className="h-10 w-auto md:h-12"
+            width={280}
+            height={80}
+            className="h-12 w-auto md:h-14 lg:h-16 transition-opacity duration-300"
             priority
           />
         </Link>
-
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex bg-white rounded-full h-14 px-6 items-center shadow-[0px_8px_24px_rgba(0,0,0,0.06)]">
+
+        <div className={`hidden lg:flex rounded-full h-14 px-6 items-center transition-all duration-300 ${
+          transparent ? "" : "shadow-[0px_8px_24px_rgba(0,0,0,0.06)]"
+        }`}>
           <nav className="flex items-center space-x-2">
             {navItems.map((item) => {
               const active = isNavActive(item.href, pathname);
@@ -66,8 +87,12 @@ export function Header() {
                   href={item.href}
                   className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
                     active
-                      ? "bg-brand text-white"
-                      : "text-black hover:text-[#1072B7]"
+                      ? transparent
+                        ? "bg-white text-[#1072B7]"
+                        : "bg-brand text-white"
+                      : transparent
+                        ? "text-white hover:text-white/80"
+                        : "text-black hover:text-[#1072B7]"
                   }`}
                 >
                   {item.name}
@@ -78,18 +103,21 @@ export function Header() {
             <Link
               href="/#contact"
               onClick={scrollToContact}
-              className="px-5 py-2 rounded-full text-sm font-medium transition-all text-black hover:text-[#1072B7]"
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+                transparent
+                  ? "text-white hover:text-white/80"
+                  : "text-black hover:text-[#1072B7]"
+              }`}
             >
               Contact
             </Link>
           </nav>
         </div>
-
         {/* Mobile Menu */}
         <div className="flex items-center gap-3 lg:hidden">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="h-10 w-10">
+              <Button variant="ghost" size="icon" className={`h-10 w-10 ${transparent ? "text-white hover:bg-white/10" : ""}`}>
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
@@ -136,14 +164,17 @@ export function Header() {
             </SheetContent>
           </Sheet>
         </div>
-
         {/* Desktop CTA Button */}
         <Link
           href="/#contact"
           onClick={scrollToContact}
           className="hidden lg:flex items-center"
         >
-          <Button className="bg-white text-brand border border-transparent hover:bg-brand hover:text-white px-6 py-3 text-sm font-semibold rounded-full shadow-sm hover:border-[#1072B7] transition-all">
+          <Button className={`px-6 py-3 text-sm font-semibold rounded-full transition-all ${
+            transparent
+              ? "bg-brand text-white hover:opacity-90 shadow-sm"
+              : "bg-white text-brand border border-transparent hover:bg-brand hover:text-white shadow-sm hover:border-[#1072B7]"
+          }`}>
             Ontvang een offerte
           </Button>
         </Link>

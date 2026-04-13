@@ -22,8 +22,8 @@ export default function SamenwerkingSection() {
         {/* Paragraph 2 */}
         <p className="text-sm md:text-base text-black leading-relaxed -mt-1">
           Bent u op zoek naar een betrouwbare partner in staalconstructie
-          tekenwerk? wij maken graag kennis om te bespreken hoe wij uw
-          organisatie kunnen ondersteunen. maak kennis met ons.
+          tekenwerk? Wij maken graag kennis om te bespreken hoe wij uw
+          organisatie kunnen ondersteunen. Maak kennis met ons.
         </p>
 
         <div className="w-full mt-2">

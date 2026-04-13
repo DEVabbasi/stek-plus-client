@@ -7,7 +7,7 @@ export default function OverHeroSection() {
         {/* LEFT — text block */}
         <div className="w-full md:w-[60%] text-white">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
-            Over stek+
+            Over Stek+
           </h1>
           <p className="text-sm md:text-base text-white/90 mt-4 leading-relaxed max-w-md">
             Stek+ is gespecialiseerd in het uitwerken van staalconstructies voor

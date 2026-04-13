@@ -6,23 +6,23 @@ export function OnzeWerkwijzeSection() {
       iconFile: "Black-1.svg",
       title: "Inschakelen bij capaciteitsproblemen",
       description:
-        "Kom tussenbeide bij capaciteitstekorten om uw productie draaiende te houden.",
+        "Wanneer uw interne capaciteit tekortschiet, springen wij direct bij om continuïteit in uw productieproces te waarborgen — zonder vertraging of kwaliteitsverlies.",
     },
     {
       iconFile: "Black.svg",
       title: "Ondersteunen bij grote of complexe projecten",
       description:
-        "Ondersteun grote of complexe projecten die gespecialiseerde aandacht vereisen.",
+        "Wij bieden extra slagkracht en specialistische kennis bij projecten die meer aandacht, ervaring of snelheid vereisen dan intern beschikbaar is.",
     },
     {
       iconFile: "Black-2.svg",
       title: "Bijdragen aan optimalisaties",
-      description: "Bijdragen aan optimalisaties voor een betere maakbaarheid.",
+      description: "We analyseren en verbeteren bestaande processen, zodat uw productie efficiënter, betrouwbaarder en beter maakbaar wordt.",
     },
     {
       iconFile: "Black-3.svg",
       title: "Flexibel inzetbaar",
-      description: "Flexibel inzetbaar per project of periode indien nodig.",
+      description: "Of het nu gaat om tijdelijke ondersteuning of een langdurige samenwerking: wij passen ons aan uw planning, processen en werkwijze aan.",
     },
   ];
 
@@ -30,11 +30,11 @@ export function OnzeWerkwijzeSection() {
     <section className="bg-white py-16 sm:py-10 px-2">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-black">
-          Onze werkwijze
+          Ondersteuning bij uw uitdagingen
         </h2>
 
         <p className="text-sm md:text-base text-center text-black mt-3 pr-4 pl-4 mx-auto leading-relaxed">
-          Wij werken als externe tekenpartner voor staalproductiebedrijven. dat
+          Wij werken als externe tekenpartner voor staalproductiebedrijven. Dat
           betekent dat wij
         </p>
 
