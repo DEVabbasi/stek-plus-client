@@ -59,7 +59,7 @@ export function ContactSection({ preselectedDienst, title, subtitle }) {
 
         <div className="mx-auto mt-2.5 max-w-[760px]">
           <p className="text-center text-[15px] font-bold leading-[1.15] text-[#111] md:text-[16px]">
-            Capaciteit nodig? wij denken graag mee.
+            Capaciteit nodig? Wij denken graag mee.
           </p>
           <p className="mx-auto mt-1 max-w-[760px] text-center text-[13px] leading-[1.35] text-[#111] md:text-[14px]">
             {subtitle ||

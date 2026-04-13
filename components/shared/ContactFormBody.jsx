@@ -54,7 +54,7 @@ export function ContactFormBody({ register, errors, setValue, watch }) {
           <Input
             {...register("email")}
             type="email"
-            placeholder="E-Mailadres"
+            placeholder="E-mailadres"
             className={cn(
               fieldClassName,
               errors.email && "border-red-500 focus:border-red-500"
