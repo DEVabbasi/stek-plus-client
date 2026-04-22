@@ -24,24 +24,42 @@ export function HeroSection() {
         <div className="absolute inset-0 md:hidden bg-[linear-gradient(180deg,rgba(7,31,53,0.55)_0%,rgba(7,31,53,0.45)_36%,rgba(7,31,53,0.55)_100%)]" />
       </div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1440px] items-center px-5 pt-24 pb-14 sm:px-7 sm:pt-28 sm:pb-16 md:px-10 md:pt-28 md:pb-20 lg:min-h-screen lg:px-12 lg:pt-32 lg:pb-24">
-        <div className="w-full max-w-[36rem] space-y-5 text-left text-white sm:space-y-6 lg:ml-6 lg:max-w-[40rem]">
-          <div className="space-y-1 sm:space-y-3 md:space-y-4">
-            <h1 className="hero-title hero-display-primary hero-text-shadow text-[clamp(3rem,4.4vw+1rem,4.9rem)] leading-relaxed sm:max-w-[15ch]">
-              Specialisten In Staalconstructie
+      <div className="relative z-10 mx-auto flex w-full max-w-375 items-center px-5 pt-24 pb-14 sm:px-7 sm:pt-28 sm:pb-16 md:px-10 md:pt-28 md:pb-20 lg:min-h-screen lg:px-12 lg:pt-32 lg:pb-24">
+        <div className="w-full text-left text-white sm:space-y-6 lg:ml-6">
+          <div className=" sm:space-y-3 md:space-y-3 lg:space-y-2">
+            <h1 className="hero-title hero-display-primary hero-text-shadow  leading-[90px] sm:max-w-[15ch]">
+              Specialisten
             </h1>
-            <h2 className="hero-subtitle hero-display-secondary hero-text-shadow max-w-[8ch] text-[clamp(2.8rem,4vw+0.85rem,4.6rem)] leading-[1.03] opacity-95 sm:max-w-[9ch]">
-              Tekenwerk
+            <h2 className="hero-subtitle hero-display-secondary hero-text-shadow leading-[90px]  sm:max-w-[15ch]">
+              In Staalconstructie
             </h2>
+            <p className="hero-description text-sm sm:text-base md:text-lg lg:text-xxl font-bold text-white max-w-3xl">
+              Tekenburo & Engineering Bureau
+            </p>
           </div>
           <ul className="hero-body mx-0 max-w-116 space-y-3 pt-1 text-white sm:space-y-4">
-            <li className="flex items-center gap-3 text-sm sm:text-[15px] md:text-base lg:text-lg">
-              <BadgeCheck className="h-5 w-5 flex-shrink-0 text-[#88c8f7] md:h-6 md:w-6" />
-              <span>Specialist in staalconstructies</span>
+            <li className="flex items-center gap-3 text-md sm:text-[15px] md:text-base lg:text-lg">
+              <Image
+                src="/icons/heroCheck1.svg"
+                alt=""
+                width={26}
+                height={26}
+                className="h-9 w-9 md:p-2 bg-white rounded-full text-[var(--brand-blue)] md:h-8 md:w-8 "
+              />
+              <span>
+                Specialist in staalconstructies, 3D modelleren met Tekla
+                Structures
+              </span>
             </li>
             <li className="flex items-center gap-3 text-sm sm:text-[15px] md:text-base lg:text-lg">
-              <BadgeCheck className="h-5 w-5 flex-shrink-0 text-[#88c8f7] md:h-6 md:w-6" />
-              <span>Snel, nauwkeurig en betrouwbaar</span>
+              <Image
+                src="/icons/heroCheck1.svg"
+                alt=""
+                width={26}
+                height={26}
+                className="h-9 w-9 md:p-2 bg-white rounded-full text-[var(--brand-blue)] md:h-8 md:w-8 "
+              />
+              <span>Snel, nauwkeurig en betrouwbaar tekenwerk</span>
             </li>
           </ul>
           <Link href="/#contact">

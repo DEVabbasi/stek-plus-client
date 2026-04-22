@@ -5,9 +5,16 @@ import SamenwerkingSection from "@/components/sections/over-ons/SamenwerkingSect
 import VectorDivider from "@/components/ui/VectorDivider";
 
 export const metadata = {
-  title: "Over Ons | Stek+",
+  title: "Over Stek+ | Technisch Tekenbureau voor Metaalconstructie",
+  keywords: [
+    "technisch tekenbureau",
+    "tekenwerk uitbesteden",
+    "metaalconstructie",
+    "staalconstructie tekenwerk",
+    "Stek Plus tekenwerk",
+  ],
   description:
-    "Stek+ is gespecialiseerd in het uitwerken van staalconstructies voor productiebedrijven.",
+    "Stek+ is een technisch tekenbureau gespecialiseerd in metaalconstructie en staalconstructie. Ontdek hoe wij uw tekenwerk uitbesteden eenvoudig, betrouwbaar en schaalbaar maken",
 };
 
 export default function OverOns() {

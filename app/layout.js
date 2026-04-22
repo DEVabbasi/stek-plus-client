@@ -32,8 +32,18 @@ const helveticaNowDisplay = localFont({
 });
 
 export const metadata = {
-  title: "STEK+ Staaltechnisch Tekenburo",
-  description: "Specialisten in staalconstructie tekenwerk",
+  title: "Stek Plus Tekenburo voor Staalconstructie | Engineering Bureau",
+  description:
+    "Stek Plus is een gespecialiseerd tekenburo voor staalconstructie en staalbouw. Wij werken met Tekla Structures en leveren betrouwbaar tekenwerk als engineering bureau voor constructiebedrijven in Nederland.",
+  keywords: [
+    "Stek Plus tekenburo",
+    "staalconstructie",
+    "Tekla Structures",
+    "engineering bureau",
+    "staalbouw",
+    "stalen trap",
+    "constructiebedrijf",
+  ],
 };
 export const viewport = {
   width: "device-width",
@@ -44,7 +54,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="nl" translate="no" className={helveticaNowDisplay.variable}>
       <head>
-        <meta name="google-site-verification" content="Kac9LI0OveKPsyTRXH5XO2tiUGNcnycIjHG-44ZbGiM" />
+        <meta
+          name="google-site-verification"
+          content="Kac9LI0OveKPsyTRXH5XO2tiUGNcnycIjHG-44ZbGiM"
+        />
         <meta name="google" content="notranslate" />
       </head>
       <body className={`${helveticaNowDisplay.variable} font-sans antialiased`}>

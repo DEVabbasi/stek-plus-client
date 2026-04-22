@@ -137,7 +137,7 @@ header {
 }
 
 .hero-display-primary {
-  font-size: clamp(2.9rem, 5vw + 1rem, 5.9rem);
+  font-size: 5.5rem;
   line-height: 0.98;
   font-weight: 900;
 }
@@ -145,7 +145,7 @@ header {
 .hero-display-secondary {
   font-family:
     var(--font-helvetica-now), "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: clamp(2.6rem, 5.2vw + 0.65rem, 6.25rem);
+  font-size: 5.5rem;
   line-height: 1.07;
   letter-spacing: 0;
   font-weight: 300;
@@ -176,7 +176,7 @@ header {
   }
 
   .hero-section .hero-subtitle {
-    font-size: 4.75rem;
+    font-size: 4.70rem;
     line-height: 1.07;
   }
 
@@ -213,7 +213,7 @@ header {
 
   .hero-section .hero-subtitle {
     font-size: 2.6rem;
-    line-height: 1.07;
+    line-height: 1.03;
   }
 
   .hero-image-frame {

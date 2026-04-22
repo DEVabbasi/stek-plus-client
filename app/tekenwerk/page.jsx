@@ -2,7 +2,23 @@ import { TekenwerkenCard } from "@/components/sections/tekenwerken/TekenwerkenCa
 import { tekenwerkenProducts } from "@/lib/data/tekenwerken-data";
 import VectorDivider from "@/components/ui/VectorDivider";
 
-export const metadata = { title: "Diensten | Stek+" };
+export const metadata = {
+  title: "Diensten | Stek+",
+  keywords: [
+    "staalconstructie tekenwerk",
+    "Tekla Structures tekenwerk",
+    "werkplaats tekeningen staal",
+    "montagetekeningen staalconstructie",
+    "productietekeningen staal",
+    "NC bestanden staalconstructie",
+    "DXF bestanden staal",
+    "STP bestanden staalconstructie",
+    "staalbouw tekeningen",
+    "technisch tekenbureau staal"
+  ],
+  description:
+    "STEK+ verzorgt staalconstructie tekenwerk van 3D modelleren in Tekla Structures tot werkplaats-, montage- en productietekeningen, inclusief NC, DXF en STP export voor staalproductie.",
+};
 
 export default function DienstenPage() {
   return (
