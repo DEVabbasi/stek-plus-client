@@ -34,7 +34,7 @@ export function HeroSection() {
               In Staalconstructie
             </h2>
             <p className="hero-description text-sm sm:text-base md:text-lg lg:text-xxl font-bold text-white max-w-3xl">
-              Tekenburo & Engineering Bureau
+              Engineering Bureau
             </p>
           </div>
           <ul className="hero-body mx-0 max-w-116 space-y-3 pt-1 text-white sm:space-y-4">
