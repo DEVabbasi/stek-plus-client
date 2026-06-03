@@ -136,7 +136,7 @@ export function Footer() {
                 BTW-Identificatienummer
               </h3>
               <p className="text-[14px] font-medium leading-[1.25] tracking-[-0.01em] text-white md:text-[15px] lg:text-[16px]">
-                NL005142783B3
+                NL005142783B31
               </p>
             </div>
           </div>
