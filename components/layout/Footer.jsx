@@ -112,7 +112,7 @@ export function Footer() {
                   >
                     <Image
                       src={socialLink.icon}
-                      alt=""
+                      alt="SOCIAL MEDIA ICON"
                       width={16}
                       height={16}
                       className="h-[15px] w-[15px] object-contain transition-all duration-300 [filter:brightness(0)_invert(1)] group-hover:[filter:invert(31%)_sepia(92%)_saturate(1117%)_hue-rotate(184deg)_brightness(90%)_contrast(93%)] lg:h-4 lg:w-4"
