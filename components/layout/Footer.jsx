@@ -135,7 +135,7 @@ export function Footer() {
               <h3 className="mb-2.5 text-[18px] font-bold leading-[1.25] text-white lg:mb-3 lg:text-[20px] lg:leading-[1.3]">
                 BTW-Identificatienummer
               </h3>
-              <p className="text-[14px] font-medium leading-[1.25] tracking-[-0.01em] text-white md:text-[15px] lg:text-[16px]">
+              <p className="text-[14px] font-medium leading-[1.25] tracking-[-0.01em] text-white md:text-[15px] lg:text-[17px]">
                 NL005142783B31
               </p>
             </div>
