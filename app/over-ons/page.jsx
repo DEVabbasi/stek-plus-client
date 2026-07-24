@@ -5,16 +5,19 @@ import SamenwerkingSection from "@/components/sections/over-ons/SamenwerkingSect
 import VectorDivider from "@/components/ui/VectorDivider";
 
 export const metadata = {
-  title: "Over Stek+ | Technisch Tekenbureau voor Metaalconstructie",
+  title: "Over Stek+ | Tekenwerk Uitbesteden Staalbouw | Technisch Tekenbureau",
   keywords: [
+    "tekenwerk uitbesteden staalbouw",
     "technisch tekenbureau",
-    "tekenwerk uitbesteden",
     "metaalconstructie",
+    "externe tekenpartner staalbouw",
+    "flexibel tekenbureau staal",
+    "betrouwbaar tekenbureau staalconstructie",
     "staalconstructie tekenwerk",
     "Stek Plus tekenwerk",
   ],
   description:
-    "Stek+ is een technisch tekenbureau gespecialiseerd in metaalconstructie en staalconstructie. Ontdek hoe wij uw tekenwerk uitbesteden eenvoudig, betrouwbaar en schaalbaar maken",
+    "Wilt u tekenwerk uitbesteden staalbouw? STEK+ is een technisch tekenbureau metaalconstructie en werkt als externe tekenpartner voorstaalproducenten in Nederland. Flexibel, betrouwbaar en schaalbaar.",
 };
 
 export default function OverOns() {

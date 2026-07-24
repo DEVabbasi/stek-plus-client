@@ -32,10 +32,20 @@ const helveticaNowDisplay = localFont({
 });
 
 export const metadata = {
-  title: "Stek Plus Tekenburo voor Staalconstructie | Engineering Bureau",
+  title:
+    "STEK+ | Tekenbureau Staalbouw | Technisch Tekenbureau voor Staalconstructie",
   description:
-    "Stek Plus is een gespecialiseerd tekenburo voor staalconstructie en staalbouw. Wij werken met Tekla Structures en leveren betrouwbaar tekenwerk als engineering bureau voor constructiebedrijven in Nederland.",
+    "STEK+ is een ervaren tekenbureau staalbouw in Nederland. Wij verzorgen werkplaats- en montagetekeningen in Tekla Structures voor constructiebedrijven en staalproducenten. Snel, nauwkeurig enbetrouwbaar.",
   keywords: [
+    "tekenbureau staalbouw",
+    "tekenburo staalconstructie",
+    "staalbouwkundig",
+    "tekenbureau",
+    "technisch tekenbureau staalbouw",
+    "werkplaatstekeningen",
+    "staalbouw",
+    "Tekla Structures",
+    "staalconstructie tekenpartner",
     "Stek Plus tekenburo",
     "staalconstructie",
     "Tekla Structures",

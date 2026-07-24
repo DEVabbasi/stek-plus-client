@@ -9,8 +9,16 @@ import { contactSchema } from "@/lib/validations/contact.schema";
 import { submitQuotation, resetContactForm } from "@/store/slices/contactSlice";
 import { ContactFormBody } from "@/components/shared/ContactFormBody";
 import { BrandButton } from "@/components/ui/BrandButton";
+import { useSectionSEO } from "@/hooks/useSectionSEO";
 
 export function ContactSection({ preselectedDienst, title, subtitle }) {
+  const seoRef = useSectionSEO({
+    title: "Offerte Aanvragen | Tekenbureau Staalbouw Offerte | STEK+",
+    description:
+      "Vraag een tekenbureau staalbouw offerte aan bij STEK+. Wij reageren snel op uw staalconstructie tekenwerk offerte aanvragen en denken graag mee over capaciteit en planning.",
+    keywords:
+      "tekenbureau staalbouw offerte, staalconstructie tekenwerk offerte aanvragen, werkplaatstekeningen offerte staal, tekenburo contact nederland",
+  });
   const dispatch = useDispatch();
   const { status, error } = useSelector((state) => state.contact);
 
@@ -49,6 +57,7 @@ export function ContactSection({ preselectedDienst, title, subtitle }) {
 
   return (
     <section
+      ref={seoRef}
       id="contact"
       className="relative w-full overflow-visible bg-white px-4 pb-20 pt-20 md:pt-24"
     >
@@ -61,9 +70,20 @@ export function ContactSection({ preselectedDienst, title, subtitle }) {
           <p className="text-center text-[15px] font-bold leading-[1.15] text-[#111] md:text-[16px]">
             Capaciteit nodig? Wij denken graag mee.
           </p>
-          <p className="mx-auto mt-1 max-w-[760px] text-center text-[13px] leading-[1.35] text-[#111] md:text-[14px]">
+          <p className="mx-auto mt-1 max-w-4xl text-center text-[13px] leading-normal text-gray-600 md:text-[14px]">
             {subtitle ||
               "Heeft u tijdelijke onderbezetting of zoekt u structurele ondersteuning in tekenwerk? Neem vrijblijvend contact met ons op om de mogelijkheden te bespreken."}
+          </p>
+          <p className="mx-auto mt-1 max-w-4xl text-center text-[13px] leading-normal text-gray-600 md:text-[14px]">
+            Wilt u een tekenbureau staalbouw offerte aanvragen? Neem
+            vrijblijvend contact met ons op. Wij bespreken graag de
+            mogelijkheden voor uw project en reageren snel op alle
+            staalconstructie tekenwerk offerte aanvragen die binnenkomen.
+          </p>
+          <p className="mx-auto mt-1 max-w-4xl text-center text-[13px] leading-normal text-gray-600 md:text-[14px]">
+            Of het nu gaat om een eenmalig project of structurele ondersteuning,
+            wij denken mee over capaciteit en planning en sturen op korte
+            termijn een passende werkplaatstekeningen offerte staal.
           </p>
         </div>
 

@@ -1,6 +1,6 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import { BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
@@ -35,6 +35,21 @@ export function HeroSection() {
             </h2>
             <p className="hero-description text-sm sm:text-base md:text-lg lg:text-xxl font-bold text-white max-w-3xl">
               Engineering Bureau
+            </p>
+            <p className="hero-description text-sm sm:text-base md:text-lg lg:text-xxl text-white max-w-3xl">
+              Als ervaren tekenbureau staalbouw ondersteunt STEK+
+              constructiebedrijven en staalproducenten door heel Nederland met
+              nauwkeurig en productieklaar tekenwerk. Of het gaat om een enkele
+              stalen trap of een volledige industriële hal, ons tekenbureau
+              staalbouw werkt volledig in Tekla Structures en levert werkplaats-
+              en montagetekeningen die direct de werkvloer op kunnen.
+            </p>
+            <p className="mt-3 text-sm sm:text-base md:text-lg lg:text-xxl text-white max-w-3xl">
+              Als staalbouwkundig tekenbureau met ervaring binnen de
+              staalproductie weten wij precies waar de werkvloer om vraagt. Wij
+              functioneren als vaste tekenpartner voor bedrijven die op zoek
+              zijn naar een technisch tekenbureau staalbouw dat meedenkt, snel
+              schakelt en zich volledig aanpast aan uw werkwijze en planning.
             </p>
           </div>
           <ul className="hero-body mx-0 max-w-116 space-y-3 pt-1 text-white sm:space-y-4">

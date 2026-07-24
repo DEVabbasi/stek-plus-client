@@ -87,10 +87,23 @@ export default function ProjectenClient() {
       <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-black">
         Onze projecten
       </h1>
-      <p className="text-center text-black text-sm md:text-base mt-3 max-w-lg mx-auto">
+      <p className="text-center text-gray-500 text-sm md:text-base mt-3 max-w-4xl mx-auto">
         Bekijk ons portfolio met technische tekeningen en 3d-modellen.
       </p>
-
+      <p className="text-center text-gray-500 text-sm md:text-base mt-3 max-w-4xl mx-auto">
+        Onze staalconstructie projecten nederland laten zien hoe wij
+        uiteenlopende opdrachten uitwerken, van kleine maatwerkoplossingen tot
+        omvangrijke industriële constructies. Elk van onze staalconstructie
+        referentieprojecten is volledig gemodelleerd in Tekla Structures en
+        productieklaar opgeleverd aan de klant.
+      </p>{" "}
+      <p className="text-center text-gray-500 text-sm md:text-base mt-3 max-w-4xl mx-auto">
+        Bekijk hieronder een aantal tekla structures projecten staalbouw waaraan
+        wij hebben gewerkt, waaronder stalen trap project tekeningen voor
+        woningbouw en utiliteit, bedrijfshallen en bijzondere staalconstructies.
+        Deze projecten geven een goed beeld van de nauwkeurigheid en het
+        detailniveau waarmee STEK+ werkt.
+      </p>
       {/* Tabs */}
       <div className="mt-8 -mx-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:px-0">
         <div className="mx-auto flex min-w-max flex-nowrap gap-1 rounded-full bg-gray-100 p-1 min-h-11 sm:w-fit">
@@ -119,7 +132,6 @@ export default function ProjectenClient() {
               ))}
         </div>
       </div>
-
       {/* Main Content Area */}
       <div className="mt-8">{content}</div>
     </div>
