@@ -33,7 +33,7 @@ export function TekenwerkSection() {
                 alt={item.title}
                 width={36}
                 height={36}
-                className="object-contain brightness-0 invert border border-white/60 rounded-sm p-2"
+                className="w-9 h-9 object-contain brightness-0 invert border border-white/60 rounded-sm p-2"
               />
               <h3 className="text-base font-bold text-white leading-snug whitespace-pre-line">
                 {item.title}

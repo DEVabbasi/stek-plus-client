@@ -50,7 +50,7 @@ export function OnzeWerkwijzeSection() {
                   alt=""
                   width={28}
                   height={28}
-                  className="object-contain"
+                  className="w-7 h-7 object-contain"
                 />
               </span>
               <h3 className="text-base font-bold text-black leading-snug">
