@@ -20,20 +20,10 @@ export default function OverHeroSection() {
             wanneer projecten daar om vragen.
           </p>
           <p className="text-sm md:text-base text-white/90 mt-4  max-w-xl">
-            Steeds meer staalproducenten kiezen ervoor om tekenwerk uitbesteden
-            staalbouw structureel onderdeel te maken van hun bedrijfsvoering. In
-            plaats van een eigen tekenkamer volledig te belasten tijdens
-            piekperiodes, schakelen zij een externe tekenpartner staalbouw in
-            die meebeweegt met de planning en capaciteit van het moment.
+            Steeds meer staalproducenten kiezen ervoor om tekenwerk uitbesteden staalbouw structureel onderdeel te maken van hun bedrijfsvoering. In plaats van een eigen tekenkamer volledig te belasten tijdens piekperiodes, schakelen zij een externe tekenpartner staalbouw in die meebeweegt met de planning en capaciteit van het moment.
           </p>
           <p className="text-sm md:text-base text-white/90 mt-4  max-w-xl">
-            Als technisch tekenbureau metaalconstructie combineren wij
-            technische kennis met praktijkervaring binnen de staalproductie. Ons
-            flexibel tekenbureau staal past zich volledig aan uw standaarden,
-            sjablonen en werkwijze aan, zodat samenwerken vanaf de eerste
-            tekening soepel verloopt. Bedrijven die op zoek zijn naar een
-            betrouwbaar tekenbureau staalconstructie kiezen voor STEK+ vanwege
-            korte communicatielijnen en heldere afspraken.
+            Als technisch tekenbureau metaalconstructie combineren wij technische kennis met praktijkervaring binnen de staalproductie. Ons flexibel tekenbureau staal past zich volledig aan uw standaarden, sjablonen en werkwijze aan, zodat samenwerken vanaf de eerste tekening soepel verloopt. Bedrijven die op zoek zijn naar een betrouwbaar tekenbureau staalconstructie kiezen voor STEK+ vanwege korte communicatielijnen en heldere afspraken.
           </p>
         </div>
 
