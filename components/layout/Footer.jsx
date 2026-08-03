@@ -141,6 +141,22 @@ export function Footer() {
             </div>
           </div>
         </div>
+        {/* Copyright */}
+        <div className="mt-8 pt-6 border-t border-white">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            <p>
+              {" "}
+              © Powered By{" "}
+              <a
+                href="https://softwarefluxsolution.com/"
+                target="_blank"
+                className="hover:underline"
+              >
+                softwarefluxsolution.com
+              </a>
+            </p>
+          </div>
+        </div>
       </section>
     </footer>
   );
